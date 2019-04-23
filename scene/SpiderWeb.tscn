@@ -3,7 +3,7 @@
 [ext_resource path="res://script/SpiderWeb.gd" type="Script" id=1]
 [ext_resource path="res://image/x.jpg" type="Texture" id=2]
 
-[node name="SpiderWeb" type="Area2D" index="0"]
+[node name="SpiderWeb" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -30,6 +30,8 @@ polygon = PoolVector2Array( -40.2263, -49.977, 40.0071, -50.1172, 40.0154, 50.15
 scale = Vector2( 5.9459, 6.67895 )
 rect = Rect2( -10, -10, 20, 20 )
 _sections_unfolded = [ "Transform", "Z Index" ]
+
+[connection signal="body_entered" from="." to="." method="_on_SpiderWeb_body_entered"]
 
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
 
