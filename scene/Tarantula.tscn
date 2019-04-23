@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://script/Tarantula.gd" type="Script" id=1]
 [ext_resource path="res://image/placeholder.jpg" type="Texture" id=2]
@@ -7,6 +7,11 @@
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 18.3062 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
 
 [node name="Tarantula" type="KinematicBody2D"]
 
@@ -35,7 +40,26 @@ exclude_parent = true
 cast_to = Vector2( 0, 50 )
 collision_mask = 1
 
-[node name="Area2D" type="Area2D" parent="." index="3"]
+[node name="SpiderWeb" type="Area2D" parent="." index="3"]
+
+editor/display_folded = true
+visible = false
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpiderWeb" index="0"]
+
+position = Vector2( 0, -60 )
+scale = Vector2( 23.6888, 7.13558 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Bite" type="Area2D" parent="." index="4"]
 
 editor/display_folded = true
 input_pickable = true
@@ -46,15 +70,17 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bite" index="0"]
 
-position = Vector2( 0, -60 )
-scale = Vector2( 23.6888, 7.13558 )
-shape = SubResource( 1 )
+position = Vector2( 0, -10 )
+scale = Vector2( 9, 5 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Position2D" type="Position2D" parent="." index="4"]
+[node name="Position2D" type="Position2D" parent="." index="5"]
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SpiderWeb" to="." method="_on_SpiderWeb_body_entered"]
+
+[connection signal="body_entered" from="Bite" to="." method="_on_Bite_body_entered"]
 
 
