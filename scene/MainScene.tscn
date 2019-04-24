@@ -37,7 +37,11 @@ __meta__ = {
 
 [node name="Tarantula" parent="." index="1" instance=ExtResource( 2 )]
 
+<<<<<<< HEAD
 position = Vector2( 545.001, 309.499 )
+=======
+position = Vector2( 815.128, 12.2228 )
+>>>>>>> 020afc79aa713b8d4444f408e9915e5e8d64d9b3
 
 [node name="player" type="KinematicBody2D" parent="." index="2"]
 
