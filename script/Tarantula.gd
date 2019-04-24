@@ -26,7 +26,7 @@ func _physics_process(delta):
 		$Sprite.flip_h = false;
 	else:
 		$Sprite.flip_h = true;
-
+	print($RayCast2D.is_colliding())
 
 func _on_SpiderWeb_body_entered(body):
 	if body.get_name() == "player":

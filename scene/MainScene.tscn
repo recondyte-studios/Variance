@@ -34,7 +34,7 @@ tile_data = PoolIntArray( 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65
 
 [node name="Tarantula" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 774.117, 332.109 )
+position = Vector2( 815.128, 12.2228 )
 
 [node name="player" type="KinematicBody2D" parent="." index="2"]
 
