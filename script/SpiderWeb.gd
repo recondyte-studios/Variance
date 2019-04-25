@@ -2,7 +2,6 @@ extends Area2D
 
 const SPEED = 300;
 var velocity = Vector2();
-onready var player = get_node("../player")
 
 func _ready():
 	pass

@@ -17,7 +17,7 @@ func _process(delta):
 		if timer == false:
 			$Timer.start()
 			timer = true;
-
+			
 func _subtractHealth(var dmg):
 	health -= dmg
 	print(health)

@@ -4,27 +4,13 @@
 
 [node name="tile" type="Node2D"]
 
-[node name="floor" type="Sprite" parent="." index="0"]
-
-editor/display_folded = true
+[node name="floor" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 64, 64 )
-_sections_unfolded = [ "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="floor" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="floor"]
 
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floor/StaticBody2D" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( -32.0389, -31.2843, -31.7469, 31.7854, 31.6147, 31.7854, 31.6147, -31.5762 )
-
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floor/StaticBody2D"]
+polygon = PoolVector2Array( -31.9845, -31.9837, -31.9926, 31.9851, 32.0032, 32.0087, 32.0194, -32.0149 )
 
