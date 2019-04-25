@@ -20,7 +20,6 @@ func _process(delta):
 			
 func _subtractHealth(var dmg):
 	health -= dmg
-	print(health)
 
 func get_input():
 	velocity.x = 0

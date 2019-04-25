@@ -1,23 +1,25 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://script/Tarantula.gd" type="Script" id=1]
 [ext_resource path="res://image/placeholder.jpg" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 9.24952, 9.09851 )
-
 [node name="Tarantula" type="KinematicBody2D"]
-editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.05, 0.05 )
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -64.0023, -38.4082, -64.0149, 38.391, 64.0068, 38.4398, 63.9851, -38.3986 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Bite" type="Area2D" parent="."]
 editor/display_folded = true
@@ -31,23 +33,18 @@ position = Vector2( 0, -10 )
 scale = Vector2( 9, 5 )
 shape = SubResource( 1 )
 
-[node name="SpiderWeb" type="Area2D" parent="."]
-position = Vector2( -3.96112, 0 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpiderWeb"]
-position = Vector2( 6.50006, -26.6709 )
-scale = Vector2( 23.6888, 7.13558 )
-shape = SubResource( 2 )
-
 [node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 39.1501, 0.203903 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 57.726, 26.9088 )
 enabled = true
 cast_to = Vector2( 0, 15 )
 
+[node name="spiderWeb" type="RayCast2D" parent="."]
+position = Vector2( 55.1395, 0.0681572 )
+rotation = 4.71239
+enabled = true
+cast_to = Vector2( 0, 200 )
+
 [connection signal="body_entered" from="Bite" to="." method="_on_Bite_body_entered"]
-[connection signal="body_entered" from="SpiderWeb" to="." method="_on_SpiderWeb_body_entered"]

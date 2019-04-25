@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 300;
+const SPEED = 350;
 var velocity = Vector2();
 
 func _ready():
