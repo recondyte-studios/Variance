@@ -34,7 +34,6 @@ scale = Vector2( 9, 5 )
 shape = SubResource( 1 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 39.1501, 0.203903 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 57.726, 26.9088 )
@@ -42,9 +41,14 @@ enabled = true
 cast_to = Vector2( 0, 15 )
 
 [node name="spiderWeb" type="RayCast2D" parent="."]
-position = Vector2( 55.1395, 0.0681572 )
+position = Vector2( 55.0166, 0 )
 rotation = 4.71239
 enabled = true
 cast_to = Vector2( 0, 200 )
+
+[node name="wallDectective" type="RayCast2D" parent="."]
+position = Vector2( 58.1572, -7.79426 )
+rotation = 4.71239
+cast_to = Vector2( 0, 10 )
 
 [connection signal="body_entered" from="Bite" to="." method="_on_Bite_body_entered"]

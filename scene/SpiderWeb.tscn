@@ -4,40 +4,21 @@
 [ext_resource path="res://image/x.jpg" type="Texture" id=2]
 
 [node name="SpiderWeb" type="Area2D"]
-
 scale = Vector2( 0.480567, 0.480567 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-
+[node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -40.2263, -49.977, 40.0071, -50.1172, 40.0154, 50.1562, -39.9977, 50.1126 )
 
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="2"]
-
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 scale = Vector2( 5.9459, 6.67895 )
-rect = Rect2( -10, -10, 20, 20 )
-_sections_unfolded = [ "Transform", "Z Index" ]
 
 [connection signal="body_entered" from="." to="." method="_on_SpiderWeb_body_entered"]
-
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
-
-

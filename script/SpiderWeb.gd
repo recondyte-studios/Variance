@@ -2,14 +2,19 @@ extends Area2D
 
 const SPEED = 350;
 var velocity = Vector2();
+var direction = 1
 
 func _ready():
 	pass
 
 func _physics_process(delta):
-	velocity.x = SPEED * delta;
-	translate(velocity);
-	
+	if direction == 1:
+		velocity.x = SPEED * delta;
+		translate(velocity);
+	else:
+		velocity.x = SPEED * delta * -1;
+		translate(velocity);
+
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
