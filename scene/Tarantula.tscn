@@ -46,9 +46,4 @@ rotation = 4.71239
 enabled = true
 cast_to = Vector2( 0, 200 )
 
-[node name="wallDectective" type="RayCast2D" parent="."]
-position = Vector2( 58.1572, -7.79426 )
-rotation = 4.71239
-cast_to = Vector2( 0, 10 )
-
 [connection signal="body_entered" from="Bite" to="." method="_on_Bite_body_entered"]

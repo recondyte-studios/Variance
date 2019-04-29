@@ -1,43 +1,36 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://script/Goliath.gd" type="Script" id=1]
-[ext_resource path="res://image/placeholder.jpg" type="Texture" id=2]
+[ext_resource path="res://image/goliath_placeholder.png" type="Texture" id=2]
 
-[node name="Goliath" type="KinematicBody2D" index="0"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 128.243, 58.8233 )
 
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
+[node name="Goliath" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-
+[node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -33.7919, -42.2945, 27.5808, -42.1521, 27.5788, 47.1546, -33.5376, 47.1546 )
 
-build_mode = 0
-polygon = PoolVector2Array( -128.075, -76.8199, -127.967, 76.8654, 128.016, 76.8185, 128, -76.8085 )
-
-[node name="RayCast2D" type="RayCast2D" parent="." index="2"]
-
-position = Vector2( 126.324, 32.5798 )
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 25.0578, 32.9033 )
 enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 50 )
-collision_mask = 1
+cast_to = Vector2( 0, 20 )
 
-[node name="Area2D" type="Area2D" parent="." index="3"]
+[node name="StalkRange" type="Area2D" parent="."]
+editor/display_folded = true
 
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StalkRange"]
+position = Vector2( 0, -11.5 )
+shape = SubResource( 1 )
 
+[node name="wallDetection" type="RayCast2D" parent="."]
+rotation = 4.71239
+enabled = true
 
+[connection signal="body_entered" from="StalkRange" to="." method="_on_StalkRange_body_entered"]
+[connection signal="body_exited" from="StalkRange" to="." method="_on_StalkRange_body_exited"]

@@ -5,7 +5,6 @@ var jump_speed = -950
 var gravity = 2500
 var velocity = Vector2()
 var onAir = false;
-var score = 0;
 var timer = false;
 var health = 300;
 
@@ -17,9 +16,10 @@ func _process(delta):
 		if timer == false:
 			$Timer.start()
 			timer = true;
-			
+	
 func _subtractHealth(var dmg):
 	health -= dmg
+	print(health)
 
 func get_input():
 	velocity.x = 0

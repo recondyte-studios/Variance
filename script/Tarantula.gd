@@ -5,12 +5,11 @@ const SPEED = 150;
 const FLOOR = Vector2(0,-1);
 const SPIDERWEB = preload("res://scene/SpiderWeb.tscn")
 
-var spiderHealth = 20;
+#var spiderHealth = 20;
 var velocity = Vector2();
 var direction = 1;
 var i = 0
 var raycastValue = 250
-onready var player = get_node("../player");
 
 
 func _physics_process(delta):
@@ -23,12 +22,6 @@ func _physics_process(delta):
 		$RayCast2D.position.x *= -1
 		raycastValue*=-1
 		$spiderWeb.set_cast_to(Vector2(0,raycastValue))
-	
-#	if $wallDectective.is_colliding() == false:
-#		direction = direction * -1;
-#		$RayCast2D.position.x *= -1
-#		raycastValue*=-1
-#		$spiderWeb.set_cast_to(Vector2(0,raycastValue))
 		
 	if direction == 1:
 		$Sprite.flip_h = false;
@@ -47,18 +40,14 @@ func _physics_process(delta):
 					
 				spiderWeb.position = $Position2D.global_position;
 				i = 9
+		else:
+			direction = direction * -1;
+			$RayCast2D.position.x *= -1
+			raycastValue*=-1
+			$spiderWeb.set_cast_to(Vector2(0,raycastValue))
 	else:
 		i = 0
 	
-
-
-#func _on_SpiderWeb_body_entered(body):
-##	if body.get_name() == "player":
-##		var spiderWeb = SPIDERWEB.instance();
-##		get_parent().call_deferred("add_child", spiderWeb)
-##		if player.position.x < self.position.x:
-##			spiderWeb.position = $Position2D.global_position;
-#	pass # replace with function body
 
 
 func _on_Bite_body_entered(body):
