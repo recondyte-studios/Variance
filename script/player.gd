@@ -8,6 +8,8 @@ var onAir = false;
 var timer = false;
 var health = 300;
 
+signal follow;
+
 #onready var label = get_node("../Player/Camera2D/Label");
 #onready var animForward = get_node("../Player/Sprite/walkingCycle")
 
@@ -19,7 +21,6 @@ func _process(delta):
 	
 func _subtractHealth(var dmg):
 	health -= dmg
-	print(health)
 
 func get_input():
 	velocity.x = 0

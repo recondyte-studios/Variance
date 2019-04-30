@@ -28,9 +28,9 @@ func _physics_process(delta):
 		$wallDetection.set_cast_to(Vector2(0,raycastValue))
 		
 	if direction == 1:
-		$Sprite.flip_h = false;
-	else:
 		$Sprite.flip_h = true;
+	else:
+		$Sprite.flip_h = false;
 	
 	if $wallDetection.is_colliding() == true:
 		var obj = $wallDetection.get_collider()
