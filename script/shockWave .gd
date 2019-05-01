@@ -1,7 +1,7 @@
 extends Area2D
 
 const SPEED = 350;
-var velocity = Vector2();
+var velocity = Vector2(1,0);
 var direction = 1
 
 # Called when the node enters the scene tree for the first time.
@@ -16,6 +16,7 @@ func _physics_process(delta):
 	if direction == 1:
 		velocity.x = SPEED * delta;
 		translate(velocity);
+		
 	else:
 		velocity.x = SPEED * delta * -1;
 		translate(velocity);
