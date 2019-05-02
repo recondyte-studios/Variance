@@ -10,8 +10,10 @@ var position1;
 var position2;
 var yPos;
 var direction = 1
-var inRange = 200
+var inRange = 150
 var i =0
+
+#onready var origPos = get_position()
 
 onready var player = get_node("../player");
 
@@ -19,6 +21,7 @@ func _ready():
 	position1 = self.get_position().x + 400;
 	position2 = self.get_position().x;
 	yPos = get_position().y;
+	print(position2 , yPos)
 	pass
 
 
@@ -32,10 +35,6 @@ func _physics_process(delta):
 			check = 1;
 			direction *= -1
 			saveCheck = check;
-			print(get_position().y != yPos)
-			print(get_position().y)
-			if get_position().y != yPos:
-				speed.y -= movespeed
 		
 	if(check == 1):
 		speed.x= -movespeed;
@@ -45,13 +44,17 @@ func _physics_process(delta):
 			saveCheck = check 
 			
 	if check == 3:
-		if distance > inRange:
+		if distance > inRange && distance > inRange - 100:
 			_followPlayer()
 		else:
 			while i < 9:
 				_attack();
-				i += 3
-	
+				i = 10
+	if check == 4:
+		_goBack()
+		if position.y > yPos:
+			check = saveCheck
+		
 	if direction == 1:
 		$Sprite.flip_h = true;
 		$spawnPt.set_position(Vector2(235, 86))
@@ -69,6 +72,7 @@ func _physics_process(delta):
 func _followPlayer():
 	if player.position.x > position.x:
 		speed.x += 5
+		direction = 1
 	if player.position.x < position.x:
 		speed.x -= 5
 		direction = -1
@@ -77,6 +81,17 @@ func _followPlayer():
 	if player.position.y < position.y:
 		speed.y -= 5
 	
+
+func _goBack():
+	if position.x > position2:
+		speed.x += 5
+	if position.x < position2:
+		speed.x -= 5
+	if position.y > yPos:
+		speed.y += 5
+	if position.y < yPos:
+		speed.y -= 5
+	pass
 
 func _attack():
 	var shockwave = SHOCKWAVE.instance();
@@ -88,20 +103,9 @@ func _attack():
 func _on_ClawZone_body_entered(body):
 	if body.get_name() == "player":
 		check = 3;
-#		var playerPos = body.get_position()
-#		var selfPos = get_position()
-#		var x = abs(playerPos.x - selfPos.x)
-#		var y = abs(playerPos.y - selfPos.y)
-#		var angle = rad2deg(atan2(y,x));
-#		print(angle)
-#		var shockwave = SHOCKWAVE.instance();
-#		get_parent().call_deferred("add_child", shockwave)
-#		if saveCheck == 1:
-#			shockwave.direction*=-1
-#		shockwave.position = $spawnPt.global_position;
 	pass # Replace with function body.
 
 func _on_ClawZone_body_exited(body):
 	if body.get_name() == "player":
-		check = saveCheck
+		check = 4
 	pass # Replace with function body.
