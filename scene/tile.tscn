@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://image/tile.png" type="Texture" id=1]
+[ext_resource path="res://image/suburbBackground.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 959.801, 56.7607 )
 
 [node name="tile" type="Node2D"]
 
 [node name="floor" type="Sprite" parent="."]
+editor/display_folded = true
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 64, 64 )
@@ -13,4 +18,17 @@ region_rect = Rect2( 0, 0, 64, 64 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floor/StaticBody2D"]
 polygon = PoolVector2Array( -31.9845, -31.9837, -31.9926, 31.9851, 32.0032, 32.0087, 32.0194, -32.0149 )
+
+[node name="suburb" type="Sprite" parent="."]
+position = Vector2( 518.399, 296.073 )
+scale = Vector2( 0.584269, 0.584269 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1080 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="suburb"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="suburb/StaticBody2D"]
+position = Vector2( -6.10352e-005, 477.775 )
+shape = SubResource( 1 )
 
