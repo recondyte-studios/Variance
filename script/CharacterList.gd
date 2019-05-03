@@ -41,3 +41,31 @@ var JacksonStat = {
 	"MaxHp" : 200,
 	"CurrentHp" : 200
 }
+
+func StatsDisplay(CharStats):
+	var HP = CharStats.MaxHp;
+	var STR = CharStats.Str;
+	var CON = CharStats.Con;
+	var DEX = CharStats.Dex;
+	var TEQ = CharStats.Teq;
+	
+	get_node("Health").set_value(HP);
+	get_node("Str").set_value(STR);
+	get_node("Con").set_value(CON);
+	get_node("Dex").set_value(DEX);
+	get_node("Teq").set_value(TEQ);
+
+func _on_Rima_pressed():
+	StatsDisplay(RimaStat);
+
+
+func _on_Noel_pressed():
+	StatsDisplay(NoelStat);
+
+
+func _on_Jackson_pressed():
+	StatsDisplay(JacksonStat);
+
+
+func _on_Volcan_pressed():
+	StatsDisplay(VolcanStat);

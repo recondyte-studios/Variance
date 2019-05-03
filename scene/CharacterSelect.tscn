@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://script/CharacterList.gd" type="Script" id=1]
 
 [node name="CharacterSelect" type="Node2D"]
 
@@ -7,44 +9,160 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 2.10529
-margin_right = 1024.11
-margin_bottom = 598.0
+margin_left = 2.6186
+margin_top = 0.513336
+margin_right = 1024.62
+margin_bottom = 598.513
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
-margin_right = 1024.0
+[node name="Background" type="ColorRect" parent="UI"]
+editor/display_folded = true
+margin_left = -1.43195
+margin_right = 1022.57
 margin_bottom = 601.0
-color = Color( 0.831373, 0.964706, 1, 1 )
+color = Color( 0.239216, 0.239216, 0.239216, 1 )
+
+[node name="DisplayPanel" type="ColorRect" parent="UI/Background"]
+margin_left = 80.972
+margin_top = 145.0
+margin_right = 397.972
+margin_bottom = 453.0
+color = Color( 0.129412, 0.129412, 0.129412, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="DisplayPanelFrame" type="ColorRect" parent="UI/Background/DisplayPanel"]
+margin_left = 4.02997
+margin_top = 3.73761
+margin_right = 313.03
+margin_bottom = 303.738
+
+[node name="CharacterPanel" type="Panel" parent="UI"]
+margin_left = 776.997
+margin_top = 220.0
+margin_right = 933.997
+margin_bottom = 391.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Rima" type="Button" parent="UI/CharacterPanel"]
+margin_left = 17.0
+margin_top = 4.0
+margin_right = 140.0
+margin_bottom = 48.0
+text = "Rima Smokes"
+
+[node name="Noel" type="Button" parent="UI/CharacterPanel"]
+margin_left = 17.0
+margin_top = 50.0
+margin_right = 140.0
+margin_bottom = 90.0
+text = "Noel Carbon"
+
+[node name="Jackson" type="Button" parent="UI/CharacterPanel"]
+margin_left = 17.1511
+margin_top = 92.0
+margin_right = 140.151
+margin_bottom = 128.0
+text = "Jackson Mori"
+
+[node name="Volcan" type="Button" parent="UI/CharacterPanel"]
+margin_left = 17.2774
+margin_top = 129.781
+margin_right = 140.277
+margin_bottom = 165.781
+text = "Volcan Forge"
+
+[node name="Stats" type="Panel" parent="UI"]
+margin_left = 485.0
+margin_top = 230.0
+margin_right = 701.0
+margin_bottom = 381.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="Rima" type="Button" parent="UI"]
-margin_left = 753.568
-margin_top = 359.162
-margin_right = 859.568
-margin_bottom = 395.162
-text = "Rima Smokes"
+[node name="Health" type="ProgressBar" parent="UI/Stats"]
+margin_left = 40.0
+margin_top = 15.0
+margin_right = 210.0
+margin_bottom = 35.0
+custom_colors/font_color = Color( 0.133333, 0.8, 0.301961, 1 )
+custom_colors/font_color_shadow = Color( 0.0470588, 0.552941, 0.0392157, 1 )
+max_value = 300.0
 
-[node name="Noel" type="Button" parent="UI"]
-margin_left = 754.255
-margin_top = 399.063
-margin_right = 860.255
-margin_bottom = 435.063
-text = "Noel Carbon"
+[node name="HP" type="RichTextLabel" parent="UI/Stats/Health"]
+margin_left = -30.0
+margin_top = 4.0
+margin_right = -10.0
+margin_bottom = 19.0
+text = "HP"
 
-[node name="Jackson" type="Button" parent="UI"]
-margin_left = 753.684
-margin_top = 438.947
-margin_right = 859.684
-margin_bottom = 474.947
-text = "Jackson Mori"
+[node name="Str" type="ProgressBar" parent="UI/Stats"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 210.0
+margin_bottom = 60.0
+custom_colors/font_color = Color( 0.0941176, 0.788235, 0.705882, 1 )
+max_value = 50.0
 
-[node name="Volcan" type="Button" parent="UI"]
-margin_left = 753.935
-margin_top = 478.549
-margin_right = 859.935
-margin_bottom = 514.549
-text = "Volcan Forge"
+[node name="STR" type="RichTextLabel" parent="UI/Stats/Str"]
+margin_left = -30.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = 19.0
+text = "STR"
 
+[node name="Con" type="ProgressBar" parent="UI/Stats"]
+margin_left = 40.0
+margin_top = 65.0
+margin_right = 210.0
+margin_bottom = 85.0
+custom_colors/font_color = Color( 0.0941176, 0.788235, 0.705882, 1 )
+max_value = 50.0
+
+[node name="CON" type="RichTextLabel" parent="UI/Stats/Con"]
+margin_left = -30.0
+margin_top = 4.0
+margin_right = 3.0
+margin_bottom = 19.0
+text = "CON"
+
+[node name="Dex" type="ProgressBar" parent="UI/Stats"]
+margin_left = 40.0
+margin_top = 90.0
+margin_right = 210.0
+margin_bottom = 110.0
+custom_colors/font_color = Color( 0.0941176, 0.788235, 0.705882, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+max_value = 50.0
+
+[node name="DEX" type="RichTextLabel" parent="UI/Stats/Dex"]
+margin_left = -30.0
+margin_top = 3.093
+margin_right = 4.0
+margin_bottom = 18.093
+text = "DEX"
+
+[node name="Teq" type="ProgressBar" parent="UI/Stats"]
+margin_left = 40.0
+margin_top = 115.0
+margin_right = 210.0
+margin_bottom = 135.0
+custom_colors/font_color = Color( 0.0941176, 0.788235, 0.705882, 1 )
+max_value = 50.0
+
+[node name="TEQ" type="RichTextLabel" parent="UI/Stats/Teq"]
+margin_left = -30.0
+margin_top = 4.0
+margin_right = 7.0
+margin_bottom = 19.0
+text = "TEQ"
+
+[connection signal="pressed" from="UI/CharacterPanel/Rima" to="UI/Stats" method="_on_Rima_pressed"]
+[connection signal="pressed" from="UI/CharacterPanel/Noel" to="UI/Stats" method="_on_Noel_pressed"]
+[connection signal="pressed" from="UI/CharacterPanel/Jackson" to="UI/Stats" method="_on_Jackson_pressed"]
+[connection signal="pressed" from="UI/CharacterPanel/Volcan" to="UI/Stats" method="_on_Volcan_pressed"]
