@@ -13,13 +13,9 @@ func _ready():
 #	pass
 
 func _physics_process(delta):
-	if direction == 1:
-		velocity.x = SPEED * delta;
-		translate(velocity);
-		
-	else:
-		velocity.x = SPEED * delta * -1;
-		translate(velocity);
+	var direction1 = (get_node("../player").position - position).normalized()
+	var motion = direction1 * SPEED * delta
+	position += motion
 
 
 func _on_shockWave__body_entered(body):

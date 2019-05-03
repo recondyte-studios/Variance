@@ -10,9 +10,11 @@ var position1;
 var position2;
 var yPos;
 var direction = 1
-var inRange = 150
+var inRange = 400
 var i =0
-
+#var direction1
+#var motion 
+var attack = false
 #onready var origPos = get_position()
 
 onready var player = get_node("../player");
@@ -29,8 +31,12 @@ func _ready():
 func _physics_process(delta):
 	var to_player = player.global_position - self.global_position
 	var distance = to_player.length();
+	
 	if(check == 0):
 		speed.x= movespeed;
+		if attack == true:
+			_attack()
+			attack = false
 		if(self.get_position().x > position1):
 			check = 1;
 			direction *= -1
@@ -38,23 +44,33 @@ func _physics_process(delta):
 		
 	if(check == 1):
 		speed.x= -movespeed;
+		if attack == true:
+			_attack()
+			attack = false
 		if(self.get_position().x < position2):
 			direction *= -1
 			check = 0;
 			saveCheck = check 
 			
-	if check == 3:
-		if distance > inRange && distance > inRange - 100:
-			_followPlayer()
-		else:
-			while i < 9:
-				_attack();
-				i = 10
-	if check == 4:
-		_goBack()
-		if position.y > yPos:
-			check = saveCheck
-		
+#	if check == 3:
+#		if distance > inRange && distance < inRange - 200:
+#			direction1 = (player.position - position).normalized()
+#			motion = direction1 * movespeed * delta
+#			position += motion
+##			if player.position.x < position.x:
+##				direction = 1
+##			else:
+##				direction = -1 
+#		else:
+#			while i < 9:
+##				direction1 = (player.position - position).normalized()
+##				motion = direction1 * movespeed * delta
+##				position -= motion 
+#				_attack();
+#				i = 10
+#				check = 0
+#
+#
 	if direction == 1:
 		$Sprite.flip_h = true;
 		$spawnPt.set_position(Vector2(235, 86))
@@ -69,29 +85,17 @@ func _physics_process(delta):
 	
 	pass
 
-func _followPlayer():
-	if player.position.x > position.x:
-		speed.x += 5
-		direction = 1
-	if player.position.x < position.x:
-		speed.x -= 5
-		direction = -1
-	if player.position.y > position.y:
-		speed.y += 5
-	if player.position.y < position.y:
-		speed.y -= 5
-	
-
-func _goBack():
-	if position.x > position2:
-		speed.x += 5
-	if position.x < position2:
-		speed.x -= 5
-	if position.y > yPos:
-		speed.y += 5
-	if position.y < yPos:
-		speed.y -= 5
-	pass
+#func _followPlayer():
+#	if player.position.x > position.x:
+#		speed.x += 5
+#		direction = 1
+#	if player.position.x < position.x:
+#		speed.x -= 5
+#		direction = -1
+#	if player.position.y > position.y:
+#		speed.y += 5
+#	if player.position.y < position.y:
+#		speed.y -= 5
 
 func _attack():
 	var shockwave = SHOCKWAVE.instance();
@@ -102,10 +106,5 @@ func _attack():
 
 func _on_ClawZone_body_entered(body):
 	if body.get_name() == "player":
-		check = 3;
-	pass # Replace with function body.
-
-func _on_ClawZone_body_exited(body):
-	if body.get_name() == "player":
-		check = 4
+		attack = true
 	pass # Replace with function body.
