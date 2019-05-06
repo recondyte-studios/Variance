@@ -25,5 +25,4 @@ shape = SubResource( 1 )
 
 [node name="spawnPt" type="Position2D" parent="."]
 position = Vector2( -235, 86 )
-
 [connection signal="body_entered" from="ClawZone" to="." method="_on_ClawZone_body_entered"]
