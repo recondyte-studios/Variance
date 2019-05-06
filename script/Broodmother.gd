@@ -78,7 +78,8 @@ func _directional():
 		$Position2D.position.x *= -1
 		raycastValue*=-1
 		$spiderWeb.set_cast_to(Vector2(0,raycastValue))
-		
+
+
 func _spwnMiniSpider():
 	for i in 3:
 		var tarantula = TARANTULA.instance();
@@ -86,6 +87,7 @@ func _spwnMiniSpider():
 		tarantula.position = spawnPt[i].global_position;
 	spwn = true
 	$SpwnSpiderTimer.start()
+
 
 func _on_Bite_body_entered(body):
 	if body.get_name() == "player":

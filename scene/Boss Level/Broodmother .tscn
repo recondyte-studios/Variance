@@ -29,6 +29,7 @@ position = Vector2( 671.887, 18.566 )
 position = Vector2( 1052.14, 18.5661 )
 
 [node name="Boss" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 83.8725, 423.766 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -63,6 +64,7 @@ enabled = true
 cast_to = Vector2( 0, 270 )
 
 [node name="player" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 521.196, 403.401 )
 script = ExtResource( 4 )
 
