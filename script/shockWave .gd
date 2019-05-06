@@ -1,8 +1,6 @@
 extends Area2D
 
 const SPEED = 350;
-var velocity = Vector2(1,0);
-var direction = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
