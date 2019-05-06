@@ -49,8 +49,8 @@ func get_input():
 
 func _physics_process(delta):
 	velocity.y += gravity * delta;
-	get_input()
-	velocity = move_and_slide(velocity, Vector2(0, -1))
+	get_input();
+	velocity = move_and_slide(velocity, Vector2(0, -1));
 	
 
 func _on_Timer_timeout():

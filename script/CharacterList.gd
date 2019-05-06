@@ -67,7 +67,6 @@ func StatsDisplay(Char):
 
 func _on_Rima_pressed():
 	StatsDisplay(RimaStat);
-	
 
 
 func _on_Noel_pressed():
@@ -83,5 +82,5 @@ func _on_Volcan_pressed():
 
 
 func _on_StartGame_pressed():
-	Global.PlayerImg = SelectedCharacter;
 	get_tree().change_scene("res://scene/MainScene.tscn");
+

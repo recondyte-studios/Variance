@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Resource",
+"class": "SaveGame",
+"language": "GDScript",
+"path": "res://script/SaveGame.gd"
+} ]
 _global_script_class_icons={
-
+"SaveGame": ""
 }
 
 [application]
@@ -18,10 +23,6 @@ _global_script_class_icons={
 config/name="Variance"
 run/main_scene="res://scene/Menu Screen.tscn"
 config/icon="res://icon.png"
-
-[autoload]
-
-Global="*res://script/Global.gd"
 
 [rendering]
 
