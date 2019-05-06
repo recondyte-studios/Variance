@@ -18,7 +18,7 @@ onready var sprite = get_node("Sprite");
 func _process(delta):
 	if run_speed < 300:
 		if timer == false:
-			$Timer.start()
+			$SlowWalkTimer.start()
 			timer = true;
 	
 func _subtractHealth(var dmg):

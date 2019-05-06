@@ -15,10 +15,7 @@
 position = Vector2( 2506.6, 839.285 )
 
 [node name="player" type="KinematicBody2D" parent="."]
-
-editor/display_folded = true
 position = Vector2( 2600.05, -486.996 )
-
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -37,7 +34,7 @@ shape = SubResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="player"]
 current = true
 
-[node name="Timer" type="Timer" parent="player"]
+[node name="SlowWalkTimer" type="Timer" parent="player"]
 wait_time = 15.0
 
 [node name="Tarantula" parent="." instance=ExtResource( 4 )]
@@ -49,9 +46,6 @@ format = 1
 tile_data = PoolIntArray( -458722, 1, 0, -458721, 1, 0, -458720, 1, 0, -458717, 1, 0, -458716, 1, 0, -458715, 1, 0, -458714, 1, 0, -458713, 1, 0, -458712, 1, 0, -458711, 1, 0, -458710, 1, 0, -458709, 1, 0, -458708, 1, 0, -458707, 1, 0, -262118, 1, 0, -262117, 1, 0, -262116, 1, 0, -65514, 1, 0, -65513, 1, 0, -65512, 1, 0, 0, 1, 0, 65536, 1, 0, 131072, 1, 0, 131090, 1, 0, 131091, 1, 0, 131092, 1, 0, 196608, 1, 0, 262144, 1, 0, 327680, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 1, 0, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 393232, 1, 0, 393233, 1, 0, 458770, 1, 0, 458771, 1, 0, 458772, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 589848, 1, 0, 589849, 1, 0, 589850, 1, 0, 720924, 1, 0, 720925, 1, 0, 720926, 1, 0, 720927, 1, 0, 720928, 1, 0, 720929, 1, 0, 720930, 1, 0, 917541, 1, 0, 917542, 1, 0, 917543, 1, 0, 917544, 1, 0, 917545, 1, 0, 917546, 1, 0, 917547, 1, 0 )
 
 [node name="Forevermore" parent="." instance=ExtResource( 6 )]
-<<<<<<< HEAD
 position = Vector2( 2389.18, -687.581 )
-=======
-position = Vector2( 2383.18, -687.581 )
->>>>>>> 02a800c43268afd71f8a8a97078d5f0ef66a802e
-[connection signal="timeout" from="player/Timer" to="player" method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="player/SlowWalkTimer" to="player" method="_on_Timer_timeout"]

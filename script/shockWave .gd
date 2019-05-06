@@ -28,6 +28,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 
 func _on_Timer_timeout():
-	playerPos = get_node("../player").get_position() + Vector2(0,300)
+	playerPos = get_node("../player").get_position() + Vector2(10,400)
 	pos = true
 	pass # Replace with function body.
