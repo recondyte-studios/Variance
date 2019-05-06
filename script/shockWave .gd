@@ -1,22 +1,19 @@
 extends Area2D
 
-const SPEED = 350;
-var velocity = Vector2(1,0);
-var direction = 1
+const SPEED = 400;
 
-# Called when the node enters the scene tree for the first time.
+var playerPos 
+var pos = false;
+
 func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	$Timer.start()
+	pass
 
 func _physics_process(delta):
-	var direction1 = (get_node("../player").position - position).normalized()
-	var motion = direction1 * SPEED * delta
-	position += motion
-
+	if pos == true:
+		var direction1 = (playerPos - position).normalized()
+		var motion = (direction1 * SPEED * delta)
+		position += motion
 
 func _on_shockWave__body_entered(body):
 	if body.name == "player":
@@ -27,4 +24,10 @@ func _on_shockWave__body_entered(body):
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
+	pass # Replace with function body.
+
+
+func _on_Timer_timeout():
+	playerPos = get_node("../player").get_position() + Vector2(0,300)
+	pos = true
 	pass # Replace with function body.

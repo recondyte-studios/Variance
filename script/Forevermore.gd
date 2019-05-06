@@ -100,8 +100,6 @@ func _physics_process(delta):
 func _attack():
 	var shockwave = SHOCKWAVE.instance();
 	get_parent().call_deferred("add_child", shockwave)
-	if saveCheck == 1:
-		shockwave.direction*=-1
 	shockwave.position = $spawnPt.global_position;
 
 func _on_ClawZone_body_entered(body):
