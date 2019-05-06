@@ -7,10 +7,10 @@
 [ext_resource path="res://image/cat.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 129.631, 86.0439 )
+extents = Vector2( 128.181, 76.9424 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 60.6409, 38.1771 )
+extents = Vector2( 43.5272, 28.485 )
 
 [node name="Broodmother " type="Node2D"]
 
@@ -19,8 +19,17 @@ tile_set = ExtResource( 1 )
 format = 1
 tile_data = PoolIntArray( -262148, 1, 0, -327657, 1, 0, -196612, 1, 0, -262121, 1, 0, -131076, 1, 0, -196585, 1, 0, -65540, 1, 0, -131049, 1, 0, -4, 1, 0, -65513, 1, 0, 65532, 1, 0, 23, 1, 0, 131068, 1, 0, 65559, 1, 0, 196604, 1, 0, 131095, 1, 0, 262140, 1, 0, 196631, 1, 0, 327676, 1, 0, 262167, 1, 0, 393212, 1, 0, 327703, 1, 0, 458748, 1, 0, 393239, 1, 0, 524284, 1, 0, 458775, 1, 0, 589820, 1, 0, 589821, 1, 0, 589822, 1, 0, 589823, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0 )
 
+[node name="spawnPt1" type="Position2D" parent="."]
+position = Vector2( 113.41, 21.918 )
+
+[node name="spawnPt2" type="Position2D" parent="."]
+position = Vector2( 671.887, 18.566 )
+
+[node name="spawnPt3" type="Position2D" parent="."]
+position = Vector2( 1052.14, 18.5661 )
+
 [node name="Boss" type="KinematicBody2D" parent="."]
-position = Vector2( 788.691, 420.426 )
+position = Vector2( 83.8725, 423.766 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -33,49 +42,49 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
 shape = SubResource( 1 )
 
-[node name="Timer" type="Timer" parent="Boss"]
+[node name="SpwnSpiderTimer" type="Timer" parent="Boss"]
 wait_time = 10.0
 
-[node name="spawnPt1" type="Position2D" parent="Boss"]
-position = Vector2( -1277.22, -398.508 )
+[node name="BossWalkingTimer" type="Timer" parent="Boss"]
+wait_time = 5.0
+autostart = true
 
-[node name="spawnPt2" type="Position2D" parent="Boss"]
-position = Vector2( -884.325, -403.808 )
-
-[node name="spawnPt3" type="Position2D" parent="Boss"]
-position = Vector2( -433.945, -407.704 )
-
-[node name="spiderWeb" type="RayCast2D" parent="Boss"]
-position = Vector2( -106.956, 3 )
-rotation = -4.71239
-enabled = true
-cast_to = Vector2( 0, 300 )
+[node name="PoisonTimer" type="Timer" parent="Boss"]
+wait_time = 10.0
 
 [node name="Position2D" type="Position2D" parent="Boss"]
-position = Vector2( -111.543, 27.1322 )
+position = Vector2( 87.9573, 16.6822 )
+
+[node name="spiderWeb" type="RayCast2D" parent="Boss"]
+position = Vector2( 83.5964, 14.5378 )
+rotation = 4.71239
+scale = Vector2( 10, 1 )
+enabled = true
+cast_to = Vector2( 0, 270 )
 
 [node name="player" type="KinematicBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 204.374, 423.168 )
+position = Vector2( 521.196, 403.401 )
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="player"]
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 5 )
 vframes = 3
 hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2( -0.418213, -3.34497 )
 shape = SubResource( 2 )
 
+[node name="SlowWalkTimer" type="Timer" parent="player"]
+wait_time = 10.0
+
 [node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2( 20.5544, -108.644 )
+position = Vector2( -140.823, -151.183 )
 current = true
 limit_left = -260
 limit_right = 2000
 
-[node name="Timer" type="Timer" parent="player"]
-wait_time = 10.0
-[connection signal="timeout" from="Boss/Timer" to="Boss" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Boss/SpwnSpiderTimer" to="Boss" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Boss/BossWalkingTimer" to="Boss" method="_on_BossWalkingTimer_timeout"]
+[connection signal="timeout" from="Boss/PoisonTimer" to="Boss" method="_on_PoisonTimer_timeout"]

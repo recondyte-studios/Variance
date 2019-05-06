@@ -25,4 +25,5 @@ margin_top = 364.0
 margin_right = 548.0
 margin_bottom = 384.0
 text = "New Save"
+
 [connection signal="pressed" from="Panel/StartButton" to="Panel/StartButton" method="_on_StartButton_pressed"]

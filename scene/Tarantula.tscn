@@ -45,4 +45,5 @@ position = Vector2( 55.0166, 0 )
 rotation = 4.71239
 enabled = true
 cast_to = Vector2( 0, 200 )
+
 [connection signal="body_entered" from="Bite" to="." method="_on_Bite_body_entered"]

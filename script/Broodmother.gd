@@ -1,32 +1,32 @@
 extends KinematicBody2D
 
 const GRAVITY = 10;
-const SPEED = 150;
+const SPEED = 200;
 const FLOOR = Vector2(0,-1);
 const SPIDERWEB = preload("res://scene/SpiderWeb.tscn")
 const TARANTULA = preload("res://scene/Tarantula.tscn")
+const POISON = preload("res://scene/SpiderPoison.tscn")
 var spiderHealth = 110;
 var velocity = Vector2();
 var direction = 1;
 var i = 0
 var raycastValue = 250
 var spwn= false
-onready var spawnPt = [$spawnPt1, $spawnPt2, $spawnPt3]
+var walk = false
+
+onready var spawnPt = [get_node("../spawnPt1"), get_node("../spawnPt2"), get_node("../spawnPt3")]
+onready var player = get_node("../player")
 
 
 func _physics_process(delta):
-	velocity.x = SPEED * direction;
-	velocity.y += GRAVITY;
-	velocity = move_and_slide(velocity, FLOOR);
+	if walk == true:
+		velocity.x = SPEED * direction;
+		velocity.y += GRAVITY;
+		velocity = move_and_slide(velocity, FLOOR);
 	
 	
-	if spiderHealth < spiderHealth*.75 && spwn == false:
-		for i in 3:
-			var tarantula = TARANTULA.instance();
-			get_parent().call_deferred("add_child", tarantula)
-			tarantula.position = spawnPt[i].global_position;
-		spwn = true
-		$Timer.start()
+	if spiderHealth < spiderHealth*0.75 && spwn == false:
+		_spwnMiniSpider()
 	
 	if direction == 1:
 		$Sprite.flip_h = false;
@@ -35,10 +35,15 @@ func _physics_process(delta):
 		i =0
 	
 	if $spiderWeb.is_colliding() == true:
-		_shootWEB()
-	else:
-		_directional()
-	
+		var randomInt = randi() % 11
+		if randomInt > 6:
+			_shootWEB()
+			walk = false;
+		else:
+			_poisonPlayer()
+			walk = false
+
+
 func _shootWEB():
 	var obj = get_node("spiderWeb").get_collider()
 	if obj.get_name() == "player":
@@ -49,12 +54,38 @@ func _shootWEB():
 				spiderWeb.direction*=-1
 			spiderWeb.position = $Position2D.global_position;
 			i = 9
+	else:
+		_directional()
+
+
+func _poisonPlayer():
+	var obj = get_node("spiderWeb").get_collider()
+	if obj.get_name() == "player":
+		while i < 6:
+			var poison = POISON.instance();
+			get_parent().call_deferred("add_child", poison)
+			if $spiderWeb.get_cast_to().y < 0:
+				poison.direction*=-1
+			poison.position = $Position2D.global_position;
+			i = 9
+	else:
+		_directional()
+
 
 func _directional():
 		direction = direction * -1;
-		$RayCast2D.position.x *= -1
+		$spiderWeb.position.x *= -1
+		$Position2D.position.x *= -1
 		raycastValue*=-1
 		$spiderWeb.set_cast_to(Vector2(0,raycastValue))
+		
+func _spwnMiniSpider():
+	for i in 3:
+		var tarantula = TARANTULA.instance();
+		get_parent().call_deferred("add_child", tarantula)
+		tarantula.position = spawnPt[i].global_position;
+	spwn = true
+	$SpwnSpiderTimer.start()
 
 func _on_Bite_body_entered(body):
 	if body.get_name() == "player":
@@ -67,4 +98,15 @@ func _on_Bite_body_entered(body):
 
 func _on_Timer_timeout():
 	spwn = false
+	pass # Replace with function body.
+
+
+func _on_BossWalkingTimer_timeout():
+	walk = true
+	pass # Replace with function body.
+
+
+func _on_PoisonTimer_timeout():
+	player._subtractHealth(5)
+	$PoisonTimer.start()
 	pass # Replace with function body.

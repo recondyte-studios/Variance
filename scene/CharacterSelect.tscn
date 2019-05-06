@@ -171,6 +171,7 @@ margin_top = 414.199
 margin_right = 888.077
 margin_bottom = 446.199
 text = "Start"
+
 [connection signal="pressed" from="UI/CharacterPanel/Rima" to="UI/Stats" method="_on_Rima_pressed"]
 [connection signal="pressed" from="UI/CharacterPanel/Noel" to="UI/Stats" method="_on_Noel_pressed"]
 [connection signal="pressed" from="UI/CharacterPanel/Jackson" to="UI/Stats" method="_on_Jackson_pressed"]

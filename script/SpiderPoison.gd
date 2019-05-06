@@ -20,11 +20,10 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 	pass # replace with function body
 
-
-func _on_SpiderWeb_body_entered(body):
+func _on_SpiderPoison_body_entered(body):
 	if body.name == "player":
-		body.run_speed = body.run_speed - 50
-		if (body.run_speed < 100):
-			body.run_speed = 100;
+		#poison effect ....
+		body._subtractHealth(5);
+		get_node("../Boss/PoisonTimer").start()
 		queue_free();
-	pass # replace with function body
+	pass # Replace with function body.
