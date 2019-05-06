@@ -27,9 +27,6 @@ margin_top = 145.0
 margin_right = 397.972
 margin_bottom = 453.0
 color = Color( 0.129412, 0.129412, 0.129412, 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="DisplayPanelFrame" type="ColorRect" parent="UI/Background/DisplayPanel"]
 margin_left = 4.02997
@@ -37,7 +34,12 @@ margin_top = 3.73761
 margin_right = 313.03
 margin_bottom = 303.738
 
+[node name="CharPic" type="Sprite" parent="UI/Background/DisplayPanel/DisplayPanelFrame"]
+position = Vector2( 155.842, 156.713 )
+scale = Vector2( 1.07344, 0.977326 )
+
 [node name="CharacterPanel" type="Panel" parent="UI"]
+editor/display_folded = true
 margin_left = 776.997
 margin_top = 220.0
 margin_right = 933.997
@@ -75,6 +77,7 @@ margin_bottom = 165.781
 text = "Volcan Forge"
 
 [node name="Stats" type="Panel" parent="UI"]
+editor/display_folded = true
 margin_left = 485.0
 margin_top = 230.0
 margin_right = 701.0
@@ -162,7 +165,14 @@ margin_right = 7.0
 margin_bottom = 19.0
 text = "TEQ"
 
+[node name="StartGame" type="Button" parent="UI"]
+margin_left = 827.077
+margin_top = 414.199
+margin_right = 888.077
+margin_bottom = 446.199
+text = "Start"
 [connection signal="pressed" from="UI/CharacterPanel/Rima" to="UI/Stats" method="_on_Rima_pressed"]
 [connection signal="pressed" from="UI/CharacterPanel/Noel" to="UI/Stats" method="_on_Noel_pressed"]
 [connection signal="pressed" from="UI/CharacterPanel/Jackson" to="UI/Stats" method="_on_Jackson_pressed"]
 [connection signal="pressed" from="UI/CharacterPanel/Volcan" to="UI/Stats" method="_on_Volcan_pressed"]
+[connection signal="pressed" from="UI/StartGame" to="UI/Stats" method="_on_StartGame_pressed"]

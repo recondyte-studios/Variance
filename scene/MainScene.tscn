@@ -15,7 +15,6 @@
 position = Vector2( 2506.6, 839.285 )
 
 [node name="player" type="KinematicBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 2586.51, -507.754 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -48,5 +47,4 @@ tile_data = PoolIntArray( -458722, 1, 0, -458721, 1, 0, -458720, 1, 0, -458717, 
 
 [node name="Forevermore" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2389.18, -687.581 )
-
 [connection signal="timeout" from="player/Timer" to="player" method="_on_Timer_timeout"]
