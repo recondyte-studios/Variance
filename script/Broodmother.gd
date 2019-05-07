@@ -24,7 +24,6 @@ func _physics_process(delta):
 		velocity.y += GRAVITY;
 		velocity = move_and_slide(velocity, FLOOR);
 	
-	
 	if spiderHealth < spiderHealth*0.75 && spwn == false:
 		_spwnMiniSpider()
 	
@@ -54,7 +53,7 @@ func _shootWEB():
 				spiderWeb.direction*=-1
 			spiderWeb.position = $Position2D.global_position;
 			i = 9
-	else:
+	if obj.get_name() !="player":
 		_directional()
 
 
@@ -68,7 +67,7 @@ func _poisonPlayer():
 				poison.direction*=-1
 			poison.position = $Position2D.global_position;
 			i = 9
-	else:
+	if obj.get_name() != "player":
 		_directional()
 
 

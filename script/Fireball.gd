@@ -20,8 +20,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 	pass # replace with function body
 
-#need to be fix
-func _on_SpiderPoison_body_entered(body):
+func _on_Fireball_body_entered(body):
 	if body.name == "player":
 		#poison effect ....
 		body._subtractHealth(5);
