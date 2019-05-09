@@ -7,12 +7,12 @@ var velocity = Vector2()
 var onAir = false;
 var timer = false;
 var health = 300;
-onready var sprite = get_node("Sprite");
+onready var Character = load("res://saves/SaveGame.gd");
 #onready var label = get_node("../Player/Camera2D/Label");
 #onready var animForward = get_node("../Player/Sprite/walkingCycle")
 
 #func _ready():
-#	sprite.texture(Global.PlayerImg);
+#	$sprite.texture(Character.SelectedCharacter);
 
 
 func _process(delta):
