@@ -7,12 +7,12 @@ var velocity = Vector2()
 var onAir = false;
 var timer = false;
 var health = 300;
-<<<<<<< HEAD
 var bounce = false
+
+
 onready var sprite = get_node("Sprite");
-=======
 onready var Character = load("res://saves/SaveGame.gd");
->>>>>>> ba46c09b055ce6c02c1689b58b7f096234c817d3
+
 #onready var label = get_node("../Player/Camera2D/Label");
 #onready var animForward = get_node("../Player/Sprite/walkingCycle")
 
