@@ -7,6 +7,7 @@ var velocity = Vector2()
 var onAir = false;
 var timer = false;
 var health = 300;
+var bounce = false
 onready var sprite = get_node("Sprite");
 #onready var label = get_node("../Player/Camera2D/Label");
 #onready var animForward = get_node("../Player/Sprite/walkingCycle")
@@ -51,7 +52,11 @@ func _physics_process(delta):
 	velocity.y += gravity * delta;
 	get_input();
 	velocity = move_and_slide(velocity, Vector2(0, -1));
-	
+	if bounce == true:
+		var direction1 = (position - get_node("../Boss/Position2D2").get_position()).normalized()
+		var motion = (direction1 * run_speed * delta)
+		position -= motion
+		gravity = 1700
 
 func _on_Timer_timeout():
 	run_speed = 300;
