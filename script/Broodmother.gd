@@ -6,6 +6,7 @@ const FLOOR = Vector2(0,-1);
 const SPIDERWEB = preload("res://scene/SpiderWeb.tscn")
 const TARANTULA = preload("res://scene/Tarantula.tscn")
 const POISON = preload("res://scene/SpiderPoison.tscn")
+
 var spiderHealth = 110;
 var velocity = Vector2();
 var direction = 1;
@@ -37,15 +38,17 @@ func _physics_process(delta):
 		var randomInt = randi() % 11
 		if randomInt > 6:
 			_shootWEB()
-			walk = false;
 		else:
 			_poisonPlayer()
-			walk = false
+	else:
+		i =0
+		
 
 
 func _shootWEB():
 	var obj = get_node("spiderWeb").get_collider()
 	if obj.get_name() == "player":
+		walk = false
 		while i < 6:
 			var spiderWeb = SPIDERWEB.instance();
 			get_parent().call_deferred("add_child", spiderWeb)
@@ -53,13 +56,15 @@ func _shootWEB():
 				spiderWeb.direction*=-1
 			spiderWeb.position = $Position2D.global_position;
 			i = 9
-	if obj.get_name() !="player":
+	else:
 		_directional()
+
 
 
 func _poisonPlayer():
 	var obj = get_node("spiderWeb").get_collider()
 	if obj.get_name() == "player":
+		walk = false
 		while i < 6:
 			var poison = POISON.instance();
 			get_parent().call_deferred("add_child", poison)
@@ -67,16 +72,17 @@ func _poisonPlayer():
 				poison.direction*=-1
 			poison.position = $Position2D.global_position;
 			i = 9
-	if obj.get_name() != "player":
+	else:
 		_directional()
 
 
 func _directional():
-		direction = direction * -1;
-		$spiderWeb.position.x *= -1
-		$Position2D.position.x *= -1
-		raycastValue*=-1
-		$spiderWeb.set_cast_to(Vector2(0,raycastValue))
+	walk = false
+	direction = direction * -1;
+	$spiderWeb.position.x *= -1
+	$Position2D.position.x *= -1
+	raycastValue*=-1
+	$spiderWeb.set_cast_to(Vector2(0,raycastValue))
 
 
 func _spwnMiniSpider():
@@ -110,4 +116,11 @@ func _on_BossWalkingTimer_timeout():
 func _on_PoisonTimer_timeout():
 	player._subtractHealth(5)
 	$PoisonTimer.start()
+	pass # Replace with function body.
+
+
+func _on_bounce_body_entered(body):
+	if body.get_name() == "player":
+		body._subtractHealth(2);
+		body.bounce = true
 	pass # Replace with function body.
