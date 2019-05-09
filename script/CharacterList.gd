@@ -1,7 +1,8 @@
 extends Node
 
 onready var DisplayPic = get_node("../Background/DisplayPanel/DisplayPanelFrame/CharPic");
-var SelectedCharacter;
+var StatSave = load("res://saves/SaveGame.gd");
+#var Selected = StatSave.SelectedCharacer;
 
 var VolcanStat = {
 	"Character" : "Volcan Forge",
@@ -63,7 +64,7 @@ func StatsDisplay(Char):
 	get_node("Teq").set_value(TEQ);
 	
 	DisplayPic.texture = load(Char.CharImg);
-	SelectedCharacter = Char.CharImg; 
+#	Selected = Char.CharImg; 
 
 func _on_Rima_pressed():
 	StatsDisplay(RimaStat);
