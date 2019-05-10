@@ -59,8 +59,16 @@ func _physics_process(delta):
 	if bounce == true:
 		var direction1 = (position - get_node("../Boss/Position2D2").get_position()).normalized()
 		var motion = (direction1 * run_speed * delta)
-		position -= motion
-		gravity = 1700
+		position -= motion * 2
+		gravity = 1000
+#		bounce = false
+#		if position.x > get_node("../Boss/Position2D2").get_position().x:
+#			bounce = false
+#			gravity = 2700
+	if position.x > get_node("../Boss/Position2D2").get_position().x:
+		gravity = 2700
+		bounce = false
+
 
 func _on_Timer_timeout():
 	run_speed = 300;

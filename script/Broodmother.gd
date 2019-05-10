@@ -48,7 +48,7 @@ func _physics_process(delta):
 func _shootWEB():
 	var obj = get_node("spiderWeb").get_collider()
 	if obj.get_name() == "player":
-		walk = false
+		#walk = false
 		while i < 6:
 			var spiderWeb = SPIDERWEB.instance();
 			get_parent().call_deferred("add_child", spiderWeb)
@@ -64,7 +64,7 @@ func _shootWEB():
 func _poisonPlayer():
 	var obj = get_node("spiderWeb").get_collider()
 	if obj.get_name() == "player":
-		walk = false
+		#walk = false
 		while i < 6:
 			var poison = POISON.instance();
 			get_parent().call_deferred("add_child", poison)
