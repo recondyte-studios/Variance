@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://script/Goliath.gd" type="Script" id=1]
 [ext_resource path="res://image/goliath_placeholder.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 128.243, 58.8233 )
+extents = Vector2( 282.522, 68.8116 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 43.6785, 56.2783 )
 
 [node name="Goliath" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -18,19 +21,30 @@ polygon = PoolVector2Array( -33.7919, -42.2945, 27.5808, -42.1521, 27.5788, 47.1
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 25.0578, 32.9033 )
-enabled = true
 cast_to = Vector2( 0, 20 )
 
 [node name="StalkRange" type="Area2D" parent="."]
 editor/display_folded = true
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StalkRange"]
-position = Vector2( 0, -11.5 )
+position = Vector2( 0, -20 )
 shape = SubResource( 1 )
 
 [node name="wallDetection" type="RayCast2D" parent="."]
 rotation = 4.71239
-enabled = true
 
+[node name="Claw" type="Area2D" parent="."]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Claw"]
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
 [connection signal="body_entered" from="StalkRange" to="." method="_on_StalkRange_body_entered"]
 [connection signal="body_exited" from="StalkRange" to="." method="_on_StalkRange_body_exited"]
+[connection signal="body_entered" from="Claw" to="." method="_on_Claw_body_entered"]
+[connection signal="body_exited" from="Claw" to="." method="_on_Claw_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

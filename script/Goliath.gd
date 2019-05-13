@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 const GRAVITY = 10;
-const SPEED = 150;
 const FLOOR = Vector2(0,-1);
 
 #var goliath = 40;
@@ -10,47 +9,69 @@ var direction = 1;
 var raycastValue = 50
 var stalking = false
 var i = 0
+var check = 0
+var SPEED = 200;
+var claw = false
+
 
 onready var player = get_node("../player")
+onready var position1 = self.get_position().x + 600;
+onready var position2 = self.get_position().x;
 
 func _ready():
 	pass
 
 func _physics_process(delta):
-	velocity.x = SPEED * direction;
+#	velocity.x = SPEED * direction;
 	velocity.y += GRAVITY;
-	velocity = move_and_slide(velocity, FLOOR);
 	
-	if $RayCast2D.is_colliding() == false:
-		direction = direction * -1;
-		$RayCast2D.position.x *= -1
-		raycastValue*=-1
-		$wallDetection.set_cast_to(Vector2(0,raycastValue))
+	if(check == 0):
+		velocity.x= SPEED;
+		if(self.get_position().x > position1):
+			check = 1;
+			direction *= -1
+	if(check == 1):
+		velocity.x= -SPEED;
+		if(self.get_position().x < position2):
+			check = 0;
+			direction *= -1
+	
+#	if $RayCast2D.is_colliding() == false:
+#		direction = direction * -1;
+#		$RayCast2D.position.x *= -1
+#		raycastValue*=-1
+#		$wallDetection.set_cast_to(Vector2(0,raycastValue))
 		
 	if direction == 1:
 		$Sprite.flip_h = true;
 	else:
 		$Sprite.flip_h = false;
 	
-	if $wallDetection.is_colliding() == true:
-		var obj = $wallDetection.get_collider()
-		if obj.get_name() == "player":
-			while i < 6:
-				player._subtractHealth(5);
-				i = 7
-		else:
-			direction = direction * -1;
-			$RayCast2D.position.x *= -1
-			raycastValue*=-1
-			$wallDetection.set_cast_to(Vector2(0,raycastValue))
-	else:
-		i = 0
+#	if $wallDetection.is_colliding() == true:
+#		var obj = $wallDetection.get_collider()
+#		if obj.get_name() == "player":
+#			while i < 6:
+#				player._subtractHealth(5);
+#				i = 7
+#		else:
+#			direction = direction * -1;
+#			$RayCast2D.position.x *= -1
+#			raycastValue*=-1
+#			$wallDetection.set_cast_to(Vector2(0,raycastValue))
+#	else:
+#		i = 0
 		
 	if stalking:
+		SPEED = 350
 		if player.get_position().x > self.get_position().x:
-			velocity += Vector2(1,0)
+			velocity.x = SPEED
+			direction = 1
 		if player.get_position().x < self.get_position().x:
-			velocity += Vector2(-1,0)
+			velocity.x = -SPEED
+			direction = -1
+	else:
+		SPEED = 200
+	velocity = move_and_slide(velocity, FLOOR);
 
 
 func _on_StalkRange_body_entered(body):
@@ -62,4 +83,26 @@ func _on_StalkRange_body_entered(body):
 func _on_StalkRange_body_exited(body):
 	if body.get_name() == "player":
 		stalking = false
+		direction *= -1
+	pass # Replace with function body.
+
+
+func _on_Claw_body_entered(body):
+	if body.get_name() == "player":
+		claw = true;
+	pass # Replace with function body.
+
+
+func _on_Claw_body_exited(body):
+	if body.get_name() == "player":
+		claw = false
+	pass # Replace with function body.
+
+
+func _on_Timer_timeout():
+	if claw:
+		var randomInt = randi() % 11
+		if randomInt < 6:
+			player._subtractHealth(2)
+		print(player.health)
 	pass # Replace with function body.

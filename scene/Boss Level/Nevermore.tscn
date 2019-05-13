@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://script/Nevermore.gd" type="Script" id=1]
-[ext_resource path="res://image/Nevermore_placeholder.png" type="Texture" id=2]
-[ext_resource path="res://scene/tilemap.tres" type="TileSet" id=3]
+[ext_resource path="res://scene/Tile/tileMap.tres" type="TileSet" id=1]
+[ext_resource path="res://script/Nevermore.gd" type="Script" id=2]
+[ext_resource path="res://image/Nevermore_placeholder.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 154.462, 105.547 )
@@ -11,15 +11,20 @@ extents = Vector2( 154.462, 105.547 )
 
 [node name="Nevermore" type="Node2D"]
 
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( -131083, 1, 0, -196581, 1, 0, -65547, 1, 0, -131045, 1, 0, -11, 1, 0, -65509, 1, 0, 65525, 1, 0, 27, 1, 0, 131061, 1, 0, 65563, 1, 0, 196597, 1, 0, 131099, 1, 0, 262133, 1, 0, 196635, 1, 0, 327669, 1, 0, 262171, 1, 0, 393205, 1, 0, 327707, 1, 0, 458741, 1, 0, 393243, 1, 0, 524277, 1, 0, 458779, 1, 0, 589813, 1, 0, 589814, 1, 0, 589815, 1, 0, 589816, 1, 0, 589817, 1, 0, 589818, 1, 0, 589819, 1, 0, 589820, 1, 0, 589821, 1, 0, 589822, 1, 0, 589823, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 524312, 1, 0, 524313, 1, 0, 524314, 1, 0, 524315, 1, 0 )
+
 [node name="Boss" type="KinematicBody2D" parent="."]
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Boss"]
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="Boss"]
 current = true
@@ -27,13 +32,7 @@ limit_left = -700
 limit_right = 1800
 editor_draw_limits = true
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 3 )
-format = 1
-tile_data = PoolIntArray( -131083, 1, 0, -196581, 1, 0, -65547, 1, 0, -131045, 1, 0, -11, 1, 0, -65509, 1, 0, 65525, 1, 0, 27, 1, 0, 131061, 1, 0, 65563, 1, 0, 196597, 1, 0, 131099, 1, 0, 262133, 1, 0, 196635, 1, 0, 327669, 1, 0, 262171, 1, 0, 393205, 1, 0, 327707, 1, 0, 458741, 1, 0, 393243, 1, 0, 524277, 1, 0, 458779, 1, 0, 589813, 1, 0, 589814, 1, 0, 589815, 1, 0, 589816, 1, 0, 589817, 1, 0, 589818, 1, 0, 589819, 1, 0, 589820, 1, 0, 589821, 1, 0, 589822, 1, 0, 589823, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 524312, 1, 0, 524313, 1, 0, 524314, 1, 0, 524315, 1, 0 )
-
 [node name="player" type="KinematicBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 shape = SubResource( 2 )
-

@@ -32,7 +32,6 @@ func _physics_process(delta):
 		$Sprite.flip_h = false;
 	else:
 		$Sprite.flip_h = true;
-		i =0
 	
 	if $spiderWeb.is_colliding() == true:
 		var randomInt = randi() % 11
@@ -92,15 +91,6 @@ func _spwnMiniSpider():
 		tarantula.position = spawnPt[i].global_position;
 	spwn = true
 	$SpwnSpiderTimer.start()
-
-
-func _on_Bite_body_entered(body):
-	if body.get_name() == "player":
-		var x = 0
-		while x < 10:
-			body._subtractHealth(1)
-			x+=2;
-	pass # replace with function body
 
 
 func _on_Timer_timeout():

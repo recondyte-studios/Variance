@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 450;
+const SPEED = 500;
 var velocity = Vector2();
 var direction = 1
 
@@ -22,8 +22,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_Fireball_body_entered(body):
 	if body.name == "player":
-		#poison effect ....
-		body._subtractHealth(5);
-		get_node("../Boss/PoisonTimer").start()
+		body._subtractHealth(10);
 		queue_free();
 	pass # Replace with function body.
