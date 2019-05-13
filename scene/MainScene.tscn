@@ -12,19 +12,19 @@
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 format = 1
-tile_data = PoolIntArray( -131074, 0, 0, -196590, 0, 0, -196570, 0, 0, -196550, 0, 0, 131090, 1, 0, 131091, 1, 0, 131092, 1, 0, 589822, 2, 0, 524293, 2, 0, 524300, 2, 0, 524307, 2, 0, 524314, 2, 0, 524321, 2, 0, 524328, 2, 0, 524335, 2, 0, 524342, 2, 0, 524349, 2, 0, 524356, 2, 0, 524363, 2, 0, 524370, 2, 0, 524371, 2, 0, 524378, 2, 0 )
+tile_data = PoolIntArray( -131094, 0, 0, -131074, 0, 0, -196590, 0, 0, -196570, 0, 0, -196550, 0, 0, -196530, 0, 0, 524266, 2, 0, 524273, 2, 0, 524280, 2, 0, 524287, 2, 0, 458758, 2, 0, 458765, 2, 0, 458772, 2, 0, 458779, 2, 0, 458786, 2, 0, 458793, 2, 0, 458800, 2, 0, 458807, 2, 0, 458814, 2, 0, 458821, 2, 0, 458828, 2, 0, 458835, 2, 0, 458842, 2, 0, 458849, 2, 0 )
 
 [node name="Goliath" parent="." instance=ExtResource( 2 )]
-position = Vector2( 834.726, 467.635 )
+position = Vector2( 836.777, 383.562 )
 
 [node name="Goliath2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2577.18, 465.502 )
+position = Vector2( 2560.06, 386.731 )
 
 [node name="Goliath3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 4316.74, 443.191 )
+position = Vector2( 4292.77, 391.819 )
 
 [node name="player" type="KinematicBody2D" parent="."]
-position = Vector2( 372.098, 431.355 )
+position = Vector2( -554.146, 387.389 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -42,7 +42,9 @@ shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 current = true
+limit_left = -1000
 
 [node name="SlowWalkTimer" type="Timer" parent="player"]
 wait_time = 15.0
+
 [connection signal="timeout" from="player/SlowWalkTimer" to="player" method="_on_Timer_timeout"]

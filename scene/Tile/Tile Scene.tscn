@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://image/suburbBackground.png" type="Texture" id=1]
 [ext_resource path="res://image/tile.png" type="Texture" id=2]
 [ext_resource path="res://image/street.png" type="Texture" id=3]
+[ext_resource path="res://image/suburbBackground-extra.png" type="Texture" id=4]
 
 [node name="Tile Scene" type="Node2D"]
 
@@ -33,3 +34,10 @@ region_rect = Rect2( 0, 0, 480, 270 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Street/StaticBody2D"]
 polygon = PoolVector2Array( -239.955, -134.969, 240.013, -135.015, 240.013, 135.004, -239.978, 135.015 )
+
+[node name="extra-suburb" type="Sprite" parent="."]
+position = Vector2( -11.3845, 846.24 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1280, 720 )
+
