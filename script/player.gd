@@ -25,6 +25,10 @@ func _process(delta):
 		if timer == false:
 			$SlowWalkTimer.start()
 			timer = true;
+	var hpBar = $CanvasLayer/HpBar;
+	hpBar.set_value(health);
+	if health < 0:
+		get_tree().change_scene("res://scene/DeathScreen.tscn");
 	
 func _subtractHealth(var dmg):
 	health -= dmg

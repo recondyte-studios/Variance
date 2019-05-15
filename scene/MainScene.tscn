@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scene/Tile/tileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://scene/Goliath.tscn" type="PackedScene" id=2]
 [ext_resource path="res://script/player.gd" type="Script" id=3]
 [ext_resource path="res://image/cat.png" type="Texture" id=4]
-[ext_resource path="res://script/BossZone.gd" type="Script" id=5]
+[ext_resource path="res://image/EmptyStatBar.png" type="Texture" id=5]
+[ext_resource path="res://image/FullStatBar.png" type="Texture" id=6]
+[ext_resource path="res://script/BossZone.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -16,7 +18,7 @@ extents = Vector2( 224.858, 229.964 )
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 format = 1
-tile_data = PoolIntArray( -131094, 0, 0, -131074, 0, 0, -196590, 0, 0, -196570, 0, 0, -196550, 0, 0, -196530, 0, 0, -196510, 4, 0, -196490, 5, 0, -196470, 5, 0, 524266, 2, 0, 524273, 2, 0, 524280, 2, 0, 524287, 2, 0, 458758, 2, 0, 458765, 2, 0, 458772, 2, 0, 458779, 2, 0, 458786, 2, 0, 458793, 2, 0, 458800, 2, 0, 458807, 2, 0, 458814, 2, 0, 458821, 2, 0, 458828, 2, 0, 458835, 2, 0, 458842, 2, 0, 458849, 2, 0, 458856, 2, 0, 458863, 2, 0, 458870, 2, 0, 458877, 2, 0, 458884, 2, 0, 458891, 2, 0, 458898, 2, 0, 458903, 2, 0 )
+tile_data = PoolIntArray( -131094, 0, 0, -131074, 0, 0, -196590, 0, 0, -196570, 0, 0, -196550, 0, 0, -196530, 0, 0, -196510, 4, 0, -196490, 6, 0, -196470, 6, 0, -196450, 5, 0, 524266, 2, 0, 524273, 2, 0, 524280, 2, 0, 524287, 2, 0, 458758, 2, 0, 458765, 2, 0, 458772, 2, 0, 458779, 2, 0, 458786, 2, 0, 458793, 2, 0, 458800, 2, 0, 458807, 2, 0, 458814, 2, 0, 458821, 2, 0, 458828, 2, 0, 458835, 2, 0, 458842, 2, 0, 458849, 2, 0, 458856, 2, 0, 458863, 2, 0, 458870, 2, 0, 458877, 2, 0, 458884, 2, 0, 458891, 2, 0, 458898, 2, 0, 458903, 2, 0, 458910, 2, 0, 458917, 2, 0, 458924, 2, 0 )
 
 [node name="Goliath" parent="." instance=ExtResource( 2 )]
 position = Vector2( 836.777, 383.562 )
@@ -37,12 +39,8 @@ position = Vector2( 6138.65, 407.376 )
 position = Vector2( 7237.14, 395.393 )
 
 [node name="player" type="KinematicBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( -554.146, 387.389 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="player"]
 texture = ExtResource( 4 )
@@ -61,14 +59,37 @@ limit_left = -1000
 [node name="SlowWalkTimer" type="Timer" parent="player"]
 wait_time = 15.0
 
+[node name="CanvasLayer" type="CanvasLayer" parent="player"]
+
+[node name="HpBar" type="TextureProgress" parent="player/CanvasLayer"]
+margin_left = 741.569
+margin_top = -107.835
+margin_right = 1036.57
+margin_bottom = 187.165
+max_value = 300.0
+value = 150.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
+fill_mode = 1
+nine_patch_stretch = true
+
+[node name="Label" type="Label" parent="player/CanvasLayer"]
+margin_left = -233.918
+margin_top = 144.745
+margin_right = -193.918
+margin_bottom = 158.745
+text = "HP"
+
 [node name="BossZone" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 8956.08, 374.148 )
-script = ExtResource( 5 )
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossZone"]
 shape = SubResource( 2 )
+
 [connection signal="timeout" from="player/SlowWalkTimer" to="player" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="BossZone" to="BossZone" method="_on_BossZone_body_entered"]
