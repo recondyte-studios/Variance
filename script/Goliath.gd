@@ -103,6 +103,5 @@ func _on_Timer_timeout():
 	if claw:
 		var randomInt = randi() % 11
 		if randomInt < 6:
-			player._subtractHealth(50)
-		print(player.health)
+			player._subtractHealth(2)
 	pass # Replace with function body.
