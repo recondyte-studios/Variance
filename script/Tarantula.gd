@@ -10,7 +10,9 @@ var velocity = Vector2();
 var direction = 1;
 var i = 0
 var raycastValue = 250
+var bite = false
 
+onready var player = get_node("../player")
 
 func _physics_process(delta):
 	velocity.x = SPEED * direction;
@@ -52,8 +54,20 @@ func _physics_process(delta):
 
 func _on_Bite_body_entered(body):
 	if body.get_name() == "player":
-		var x = 0
-		while x < 10:
-			body._subtractHealth(1)
-			x+=2;
+		bite = true
 	pass # replace with function body
+
+
+func _on_Bite_body_exited(body):
+	if body.get_name() == "player":
+		bite = false
+	pass # Replace with function body.
+
+
+func _on_BiteTimer_timeout():
+	if bite:
+		var randomInt = randi() % 11
+		if randomInt < 6:
+			player._subtractHealth(2)
+			print(player.health)
+	pass # Replace with function body.

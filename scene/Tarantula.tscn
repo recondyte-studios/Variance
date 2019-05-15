@@ -46,4 +46,10 @@ rotation = 4.71239
 enabled = true
 cast_to = Vector2( 0, 200 )
 
+[node name="BiteTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
 [connection signal="body_entered" from="Bite" to="." method="_on_Bite_body_entered"]
+[connection signal="body_exited" from="Bite" to="." method="_on_Bite_body_exited"]
+[connection signal="timeout" from="BiteTimer" to="." method="_on_BiteTimer_timeout"]
