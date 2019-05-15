@@ -32,6 +32,7 @@ position = Vector2( 671.887, 18.566 )
 position = Vector2( 1052.14, 18.5661 )
 
 [node name="Boss" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 42.0273, 434.718 )
 script = ExtResource( 2 )
 __meta__ = {

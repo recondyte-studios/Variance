@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scene/Tile/tileMap.tres" type="TileSet" id=1]
+[ext_resource path="res://scene/Tarantula.tscn" type="PackedScene" id=2]
+[ext_resource path="res://script/player.gd" type="Script" id=3]
+[ext_resource path="res://image/cat.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 68.0527, 31.7368 )
+
+[node name="second level" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 65530, 1, 0, 131066, 1, 0, 196602, 1, 0, 262138, 1, 0, 327674, 1, 0, 393210, 1, 0, 458746, 1, 0, 524282, 1, 0, 589818, 1, 0, 589819, 1, 0, 589820, 1, 0, 589821, 1, 0, 589822, 1, 0, 589823, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 589843, 1, 0, 655379, 1, 0, 655380, 1, 0, 655381, 1, 0, 655382, 1, 0, 655383, 1, 0, 655384, 1, 0, 655385, 1, 0, 655386, 1, 0, 655387, 1, 0, 655388, 1, 0, 655389, 1, 0, 720925, 1, 0, 786461, 1, 0, 786462, 1, 0, 786463, 1, 0, 786464, 1, 0, 786465, 1, 0, 786466, 1, 0, 786467, 1, 0, 786468, 1, 0, 786469, 1, 0, 786470, 1, 0, 852006, 1, 0, 917542, 1, 0, 917543, 1, 0, 917544, 1, 0, 917545, 1, 0, 917546, 1, 0, 917547, 1, 0, 917548, 1, 0, 917549, 1, 0, 917554, 1, 0, 917555, 1, 0, 917556, 1, 0, 917557, 1, 0, 917558, 1, 0, 917563, 1, 0, 917564, 1, 0, 917565, 1, 0, 917566, 1, 0, 917567, 1, 0, 917572, 1, 0, 917573, 1, 0, 917574, 1, 0, 917575, 1, 0, 917576, 1, 0, 983112, 1, 0, 1048648, 1, 0, 1114184, 1, 0, 1114185, 1, 0, 1114186, 1, 0, 1114187, 1, 0, 1114188, 1, 0, 1114189, 1, 0, 1114190, 1, 0, 1114191, 1, 0, 1114192, 1, 0, 1114193, 1, 0 )
+
+[node name="Tarantula" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1425.99, 598.931 )
+
+[node name="Tarantula2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2644.3, 841.56 )
+
+[node name="Tarantula3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3937.02, 835.84 )
+
+[node name="Tarantula4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4817.9, 1041.76 )
+
+[node name="player" type="KinematicBody2D" parent="."]
+position = Vector2( 207.854, 350.655 )
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="player"]
+texture = ExtResource( 4 )
+vframes = 3
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+shape = SubResource( 1 )
+
+[node name="SlowWalkTimer" type="Timer" parent="player"]
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2( 5.84412, -71.3679 )
+current = true
