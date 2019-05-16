@@ -15,7 +15,6 @@ margin_right = 1024.62
 margin_bottom = 598.513
 
 [node name="Background" type="ColorRect" parent="UI"]
-editor/display_folded = true
 margin_left = -1.43195
 margin_right = 1022.57
 margin_bottom = 601.0
@@ -77,7 +76,6 @@ margin_bottom = 165.781
 text = "Volcan Forge"
 
 [node name="Stats" type="Panel" parent="UI"]
-editor/display_folded = true
 margin_left = 485.0
 margin_top = 230.0
 margin_right = 701.0
