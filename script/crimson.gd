@@ -18,7 +18,7 @@ var fireball = false
 
 
 onready var player = get_node("../player")
-onready var position1 = self.get_position().x + 800;
+onready var position1 = self.get_position().x + 770;
 onready var position2 = self.get_position().x;
 
 func _ready():
@@ -28,6 +28,7 @@ func _physics_process(delta):
 	velocity.x = SPEED * direction;
 	velocity.y += GRAVITY;
 	velocity = move_and_slide(velocity, FLOOR);
+	SPEED = 200
 	
 	if direction == 1:
 		$Sprite.flip_h = true;
@@ -35,24 +36,6 @@ func _physics_process(delta):
 	else:
 		$Sprite.flip_h = false;
 		$Position2D.position.x *= -1
-	
-#	if $FireBallDetector.is_colliding() == true:
-#		var obj = $FireBallDetector.get_collider()
-#		if obj.get_name() == "player":
-#			while i < 6:
-#				var fireball = FIREBALL.instance();
-#				get_parent().call_deferred("add_child", fireball)
-#				if $FireBallDetector.get_cast_to().y < 0:
-#					fireball.direction*=-1
-#				fireball.position = $Position2D.global_position;
-#				i = 9
-#		else:
-#			direction = direction * -1;
-#			$RayCast2D.position.x *= -1
-#			raycastValue*=-1
-#			$FireBallDetector.set_cast_to(Vector2(0,raycastValue))
-#	else:
-#		i = 0
 	
 	if(check == 0):
 		velocity.x= SPEED;
@@ -80,6 +63,7 @@ func _physics_process(delta):
 func _on_Claw_body_entered(body):
 	if body.get_name() == "player":
 		claw = true;
+		fireball = false
 	pass # Replace with function body.
 
 
@@ -116,10 +100,18 @@ func _on_stalking_body_exited(body):
 func _on_FireballTimer_timeout():
 	if fireball:
 		var randomInt = randi() % 11
-		if randomInt > 5:
+		if randomInt > 6:
+			SPEED = 100
 			var fireball = FIREBALL.instance();
 			get_parent().call_deferred("add_child", fireball)
 			if direction != 1:
 				fireball.direction*=-1
 			fireball.position = $Position2D.global_position;
+	pass # Replace with function body.
+
+
+func _on_bounce_body_entered(body):
+	if body.get_name() == "player":
+		body._subtractHealth(2);
+		body.bounce = true
 	pass # Replace with function body.

@@ -35,6 +35,10 @@ position = Vector2( 7237.14, 395.393 )
 
 [node name="player" parent="." instance=ExtResource( 3 )]
 
+[node name="Camera2D" type="Camera2D" parent="player"]
+current = true
+limit_left = -1500
+
 [node name="BossZone" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 8956.08, 374.148 )
