@@ -1,29 +1,52 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://script/Tarantula.gd" type="Script" id=1]
-[ext_resource path="res://image/placeholder.jpg" type="Texture" id=2]
+[ext_resource path="res://image/spidyman-animation/Spidyman.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=3]
+resource_name = "walking"
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 0, 1, 2, 3 ]
+}
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 85.8786, 29.7089 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10.418, 7.70706 )
 
 [node name="Tarantula" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.05, 0.05 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
+vframes = 2
+hframes = 2
+frame = 3
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -64.0023, -38.4082, -64.0149, 38.391, 64.0068, 38.4398, 63.9851, -38.3986 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+autoplay = "walking"
+anims/walking = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -7.00769, -12.8474 )
+shape = SubResource( 1 )
 
 [node name="Bite" type="Area2D" parent="."]
-editor/display_folded = true
-position = Vector2( -2.20065, -1.32038 )
+position = Vector2( -5.83974, -9.78835 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -31,12 +54,13 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bite"]
 position = Vector2( 0, -10 )
 scale = Vector2( 9, 5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 20.4391, -12.8474 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( 57.726, 26.9088 )
+position = Vector2( 71.7414, 9.68157 )
 enabled = true
 cast_to = Vector2( 0, 15 )
 
@@ -44,7 +68,7 @@ cast_to = Vector2( 0, 15 )
 position = Vector2( 55.0166, 0 )
 rotation = 4.71239
 enabled = true
-cast_to = Vector2( 0, 200 )
+cast_to = Vector2( 0, 150 )
 
 [node name="BiteTimer" type="Timer" parent="."]
 wait_time = 0.5

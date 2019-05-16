@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://script/SpiderWeb.gd" type="Script" id=1]
-[ext_resource path="res://image/x.jpg" type="Texture" id=2]
+[ext_resource path="res://image/Webbing.png" type="Texture" id=2]
 
 [node name="SpiderWeb" type="Area2D"]
 scale = Vector2( 0.480567, 0.480567 )
@@ -11,8 +11,9 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -40.2263, -49.977, 40.0071, -50.1172, 40.0154, 50.1562, -39.9977, 50.1126 )

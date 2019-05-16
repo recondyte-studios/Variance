@@ -1,14 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://script/player.gd" type="Script" id=1]
 [ext_resource path="res://image/cat.png" type="Texture" id=2]
 [ext_resource path="res://image/EmptyStatBar.png" type="Texture" id=3]
 [ext_resource path="res://image/FullStatBar.png" type="Texture" id=4]
+[ext_resource path="res://fonts/arkship_42.tres" type="DynamicFont" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="player" type="KinematicBody2D"]
-editor/display_folded = true
 position = Vector2( -554.146, 387.389 )
 script = ExtResource( 1 )
 
@@ -21,10 +21,6 @@ hframes = 3
 position = Vector2( 0.524979, -4.08274 )
 scale = Vector2( 5.2789, 3.61626 )
 shape = SubResource( 1 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-limit_left = -1000
 
 [node name="SlowWalkTimer" type="Timer" parent="."]
 wait_time = 15.0
@@ -44,10 +40,12 @@ fill_mode = 1
 nine_patch_stretch = true
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-margin_left = -233.918
-margin_top = 144.745
-margin_right = -193.918
-margin_bottom = 158.745
-text = "HP"
+margin_left = 671.968
+margin_top = 13.0415
+margin_right = 760.968
+margin_bottom = 64.0415
+custom_fonts/font = ExtResource( 5 )
+text = "HP: "
+align = 2
 
 [connection signal="timeout" from="SlowWalkTimer" to="." method="_on_Timer_timeout"]

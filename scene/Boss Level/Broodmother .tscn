@@ -96,6 +96,7 @@ position = Vector2( -140.823, -151.183 )
 current = true
 limit_left = -260
 limit_right = 2000
+
 [connection signal="timeout" from="Boss/SpwnSpiderTimer" to="Boss" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Boss/BossWalkingTimer" to="Boss" method="_on_BossWalkingTimer_timeout"]
 [connection signal="timeout" from="Boss/PoisonTimer" to="Boss" method="_on_PoisonTimer_timeout"]
