@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scene/Tile/tileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://script/Broodmother.gd" type="Script" id=2]
 [ext_resource path="res://image/spidyman-animation/EdgySpidyMan.png" type="Texture" id=3]
 [ext_resource path="res://scene/player.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "EdgySpidyWalk"
 length = 0.3
 loop = true
@@ -22,11 +22,8 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4 ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 275.083, 97.7773 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 224.575, 30.0896 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 285.264, 30.0896 )
 
 [node name="Broodmother " type="Node2D"]
 
@@ -56,11 +53,7 @@ hframes = 2
 frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boss/Sprite"]
-anims/EdgySpidyWalk = SubResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
-position = Vector2( 55.0527, -20.7576 )
-shape = SubResource( 1 )
+anims/EdgySpidyWalk = SubResource( 1 )
 
 [node name="SpwnSpiderTimer" type="Timer" parent="Boss"]
 wait_time = 10.0
@@ -70,14 +63,13 @@ wait_time = 10.0
 autostart = true
 
 [node name="PoisonTimer" type="Timer" parent="Boss"]
-wait_time = 10.0
+wait_time = 5.0
 
 [node name="Position2D" type="Position2D" parent="Boss"]
-visible = false
-position = Vector2( 87.9573, 16.6822 )
+position = Vector2( 152.557, 2.4322 )
 
 [node name="spiderWeb" type="RayCast2D" parent="Boss"]
-position = Vector2( 214.414, 31.9561 )
+position = Vector2( 272.732, 0.464569 )
 rotation = 4.71239
 scale = Vector2( 10, 1 )
 enabled = true
@@ -86,17 +78,22 @@ cast_to = Vector2( 0, 270 )
 [node name="bounce" type="Area2D" parent="Boss"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/bounce"]
-position = Vector2( 54.1502, -101.08 )
-shape = SubResource( 2 )
+position = Vector2( 63.0145, -109.944 )
+shape = SubResource( 3 )
 
 [node name="Position2D2" type="Position2D" parent="Boss"]
 position = Vector2( 149.931, -271.767 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boss"]
+visible = false
+polygon = PoolVector2Array( -160.217, -64.5223, -82.4052, -125.043, 17.5615, -122.341, 84.5663, -54.7958, 114.286, -67.7645, 170.484, -61.8205, 256.941, -45.0693, 345.02, -4.54227, 357.449, 57.0589, 345.02, 70.5679, -214.253, 70.0276, -222.899, 31.6619, -164, -23.4549 )
 
 [node name="player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 969.658, 189.573 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 current = true
+
 [connection signal="timeout" from="Boss/SpwnSpiderTimer" to="Boss" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Boss/BossWalkingTimer" to="Boss" method="_on_BossWalkingTimer_timeout"]
 [connection signal="timeout" from="Boss/PoisonTimer" to="Boss" method="_on_PoisonTimer_timeout"]

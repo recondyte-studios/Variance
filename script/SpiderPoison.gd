@@ -20,11 +20,11 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 	pass # replace with function body
 
-#need to be fix
 func _on_SpiderPoison_body_entered(body):
 	if body.name == "player":
 		#poison effect ....
 		body._subtractHealth(5);
 		get_node("../Boss/PoisonTimer").start()
+		get_node("../Boss").poisonCounter = 0
 		queue_free();
 	pass # Replace with function body.
