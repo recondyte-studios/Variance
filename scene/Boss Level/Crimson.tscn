@@ -25,14 +25,12 @@ format = 1
 tile_data = PoolIntArray( 65523, 5, 0, 65527, 1, 0, 7, 5, 0, 24, 1, 0, 131063, 1, 0, 65560, 1, 0, 196599, 1, 0, 131096, 1, 0, 262135, 1, 0, 196632, 1, 0, 327671, 1, 0, 262168, 1, 0, 393207, 1, 0, 327704, 1, 0, 458743, 1, 0, 393240, 1, 0, 524279, 1, 0, 458776, 1, 0, 589815, 1, 0, 524312, 1, 0, 655351, 1, 0, 589848, 1, 0, 720883, 2, 0, 720887, 1, 0, 720890, 2, 0, 655361, 2, 0, 655368, 2, 0, 655375, 2, 0, 655382, 2, 0, 655384, 1, 0, 786423, 1, 0, 720920, 1, 0, 851959, 1, 0, 786456, 1, 0, 917495, 1, 0, 851992, 1, 0 )
 
 [node name="Boss" type="KinematicBody2D" parent="."]
-position = Vector2( -299.041, 542.754 )
+position = Vector2( -291.854, 542.754 )
 scale = Vector2( 0.9, 0.9 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
+visible = false
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Boss"]
@@ -40,10 +38,11 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
 
 [node name="Position2D" type="Position2D" parent="Boss"]
-position = Vector2( -27.5562, -18.6015 )
+position = Vector2( -43.5269, -66.5135 )
 
 [node name="stalking" type="Area2D" parent="Boss"]
 editor/display_folded = true
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/stalking"]
 position = Vector2( 0, -30 )
@@ -52,6 +51,7 @@ shape = SubResource( 2 )
 [node name="Claw" type="Area2D" parent="Boss"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/Claw"]
+position = Vector2( 0, 1.14075 )
 shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="Boss"]

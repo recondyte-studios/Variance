@@ -51,4 +51,5 @@ flat = true
 [node name="Continue" parent="Panel/Buttons" instance=ExtResource( 3 )]
 margin_top = 47.0
 margin_bottom = 208.0
+
 [connection signal="pressed" from="Panel/Buttons/New Game/StartButton" to="Panel/Buttons" method="_on_StartButton_pressed"]
