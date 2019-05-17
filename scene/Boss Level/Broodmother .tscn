@@ -1,26 +1,39 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scene/Tile/tileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://script/Broodmother.gd" type="Script" id=2]
-[ext_resource path="res://image/placeholder.jpg" type="Texture" id=3]
-[ext_resource path="res://script/player.gd" type="Script" id=4]
-[ext_resource path="res://image/cat.png" type="Texture" id=5]
+[ext_resource path="res://image/spidyman-animation/EdgySpidyMan.png" type="Texture" id=3]
+[ext_resource path="res://scene/player.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=3]
+resource_name = "EdgySpidyWalk"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4 ]
+}
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 128.181, 76.9424 )
+extents = Vector2( 275.083, 97.7773 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 130.776, 79.1306 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 43.5272, 28.485 )
+extents = Vector2( 224.575, 30.0896 )
 
 [node name="Broodmother " type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 format = 1
-tile_data = PoolIntArray( -262148, 1, 0, -327657, 1, 0, -196612, 1, 0, -262121, 1, 0, -131076, 1, 0, -196585, 1, 0, -65540, 1, 0, -131049, 1, 0, -4, 1, 0, -65513, 1, 0, 65532, 1, 0, 23, 1, 0, 131068, 1, 0, 65559, 1, 0, 196604, 1, 0, 131095, 1, 0, 262140, 1, 0, 196631, 1, 0, 327676, 1, 0, 262167, 1, 0, 393212, 1, 0, 327703, 1, 0, 458748, 1, 0, 393239, 1, 0, 524284, 1, 0, 458775, 1, 0, 589820, 1, 0, 589821, 1, 0, 589822, 1, 0, 589823, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0 )
+tile_data = PoolIntArray( -262148, 1, 0, -196612, 1, 0, -131076, 1, 0, -65540, 1, 0, -4, 1, 0, -65503, 1, 0, 65532, 1, 0, 33, 1, 0, 131068, 1, 0, 65569, 1, 0, 196604, 1, 0, 131105, 1, 0, 262140, 1, 0, 196641, 1, 0, 327676, 1, 0, 262177, 1, 0, 393212, 1, 0, 327713, 1, 0, 458748, 1, 0, 393249, 1, 0, 524284, 1, 0, 458785, 1, 0, 589820, 1, 0, 589821, 1, 0, 589822, 1, 0, 589823, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 524312, 1, 0, 524313, 1, 0, 524314, 1, 0, 524315, 1, 0, 524316, 1, 0, 524317, 1, 0, 524318, 1, 0, 524319, 1, 0, 524320, 1, 0, 524321, 1, 0 )
 
 [node name="spawnPt1" type="Position2D" parent="."]
 position = Vector2( 113.41, 21.918 )
@@ -32,18 +45,21 @@ position = Vector2( 671.887, 18.566 )
 position = Vector2( 1052.14, 18.5661 )
 
 [node name="Boss" type="KinematicBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 42.0273, 434.718 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="Boss"]
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 82.6304, 14.0647 )
 texture = ExtResource( 3 )
+vframes = 3
+hframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Boss/Sprite"]
+anims/EdgySpidyWalk = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
+position = Vector2( 55.0527, -20.7576 )
 shape = SubResource( 1 )
 
 [node name="SpwnSpiderTimer" type="Timer" parent="Boss"]
@@ -57,10 +73,11 @@ autostart = true
 wait_time = 10.0
 
 [node name="Position2D" type="Position2D" parent="Boss"]
+visible = false
 position = Vector2( 87.9573, 16.6822 )
 
 [node name="spiderWeb" type="RayCast2D" parent="Boss"]
-position = Vector2( 84.4538, 43.6886 )
+position = Vector2( 214.414, 31.9561 )
 rotation = 4.71239
 scale = Vector2( 10, 1 )
 enabled = true
@@ -69,34 +86,17 @@ cast_to = Vector2( 0, 270 )
 [node name="bounce" type="Area2D" parent="Boss"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/bounce"]
+position = Vector2( 54.1502, -101.08 )
 shape = SubResource( 2 )
 
 [node name="Position2D2" type="Position2D" parent="Boss"]
 position = Vector2( 149.931, -271.767 )
 
-[node name="player" type="KinematicBody2D" parent="."]
-position = Vector2( 521.196, 403.401 )
-script = ExtResource( 4 )
-
-[node name="Sprite" type="Sprite" parent="player"]
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 5 )
-vframes = 3
-hframes = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-position = Vector2( -0.418213, -3.34497 )
-shape = SubResource( 3 )
-
-[node name="SlowWalkTimer" type="Timer" parent="player"]
-wait_time = 10.0
+[node name="player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 969.658, 189.573 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2( -140.823, -151.183 )
 current = true
-limit_left = -260
-limit_right = 2000
-
 [connection signal="timeout" from="Boss/SpwnSpiderTimer" to="Boss" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Boss/BossWalkingTimer" to="Boss" method="_on_BossWalkingTimer_timeout"]
 [connection signal="timeout" from="Boss/PoisonTimer" to="Boss" method="_on_PoisonTimer_timeout"]

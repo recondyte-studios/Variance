@@ -24,6 +24,7 @@ func _physics_process(delta):
 		velocity.x = SPEED * direction;
 		velocity.y += GRAVITY;
 		velocity = move_and_slide(velocity, FLOOR);
+		$Sprite/AnimationPlayer.play("EdgySpidyWalk")
 	
 	if spiderHealth < spiderHealth*0.75 && spwn == false:
 		_spwnMiniSpider()
@@ -82,6 +83,7 @@ func _directional():
 	$Position2D.position.x *= -1
 	raycastValue*=-1
 	$spiderWeb.set_cast_to(Vector2(0,raycastValue))
+	$Sprite/AnimationPlayer.stop()
 
 
 func _spwnMiniSpider():
