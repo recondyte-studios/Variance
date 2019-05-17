@@ -2,8 +2,8 @@
 
 [ext_resource path="res://script/player.gd" type="Script" id=1]
 [ext_resource path="res://image/cat.png" type="Texture" id=2]
-[ext_resource path="res://image/EmptyStatBar.png" type="Texture" id=3]
-[ext_resource path="res://image/FullStatBar.png" type="Texture" id=4]
+[ext_resource path="res://image/HealthBar-1.png.png" type="Texture" id=3]
+[ext_resource path="res://image/HealthBar-2.png.png" type="Texture" id=4]
 [ext_resource path="res://fonts/arkship_42.tres" type="DynamicFont" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -47,5 +47,8 @@ margin_bottom = 64.0415
 custom_fonts/font = ExtResource( 5 )
 text = "HP: "
 align = 2
+
+[node name="StacksTimer" type="Timer" parent="."]
+autostart = true
 
 [connection signal="timeout" from="SlowWalkTimer" to="." method="_on_Timer_timeout"]
