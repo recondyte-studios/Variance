@@ -8,8 +8,7 @@ var onAir = false;
 var timer = false;
 var health = 300;
 var bounce = false
-
-
+ 
 onready var sprite = get_node("Sprite");
 onready var Character = load("res://saves/SaveGame.gd");
 

@@ -14,6 +14,7 @@ var i = 0
 var raycastValue = 250
 var spwn= false
 var walk = false
+var poisonCounter = 0
 
 onready var spawnPt = [get_node("../spawnPt1"), get_node("../spawnPt2"), get_node("../spawnPt3")]
 onready var player = get_node("../player")
@@ -35,6 +36,7 @@ func _physics_process(delta):
 		$Sprite.flip_h = true;
 	
 	if $spiderWeb.is_colliding() == true:
+		print(player.health)
 		var randomInt = randi() % 11
 		if randomInt > 6:
 			_shootWEB()
@@ -42,7 +44,7 @@ func _physics_process(delta):
 			_poisonPlayer()
 	else:
 		i =0
-		
+
 
 
 func _shootWEB():
@@ -54,6 +56,7 @@ func _shootWEB():
 			get_parent().call_deferred("add_child", spiderWeb)
 			if $spiderWeb.get_cast_to().y < 0:
 				spiderWeb.direction*=-1
+				spiderWeb.get_node("Sprite").flip_h = true
 			spiderWeb.position = $Position2D.global_position;
 			i = 9
 	else:
@@ -70,6 +73,7 @@ func _poisonPlayer():
 			get_parent().call_deferred("add_child", poison)
 			if $spiderWeb.get_cast_to().y < 0:
 				poison.direction*=-1
+				poison.get_node("Sprite").flip_h = true
 			poison.position = $Position2D.global_position;
 			i = 9
 	else:
@@ -106,13 +110,16 @@ func _on_BossWalkingTimer_timeout():
 
 
 func _on_PoisonTimer_timeout():
-	player._subtractHealth(5)
-	$PoisonTimer.start()
+	if poisonCounter < 3:
+		player._subtractHealth(5)
+		poisonCounter += 1
+		$PoisonTimer.start()
 	pass # Replace with function body.
 
 
 func _on_bounce_body_entered(body):
 	if body.get_name() == "player":
-		body._subtractHealth(2);
+		body._subtractHealth(5);
 		body.bounce = true
+	
 	pass # Replace with function body.
