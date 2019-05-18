@@ -73,6 +73,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="Bounce" type="Area2D" parent="."]
+editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounce"]
 position = Vector2( -3.17769, -35.352 )
