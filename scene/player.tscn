@@ -89,9 +89,7 @@ position = Vector2( 31.8745, -8.13818 )
 frames = ExtResource( 8 )
 animation = "BasicAttack"
 
-[node name="RightBulletSpawn" type="Position2D" parent="."]
+[node name="BulletSpawn" type="Position2D" parent="."]
 position = Vector2( 56, 0 )
-
-[node name="LeftBulletSpawn" type="Position2D" parent="."]
-position = Vector2( -56, 0 )
+scale = Vector2( 1, 1 )
 [connection signal="timeout" from="SlowWalkTimer" to="." method="_on_Timer_timeout"]

@@ -3,6 +3,7 @@ extends KinematicBody2D
 onready var VolcanAxe = preload("res://scene/VolcanAxe.tscn")
 onready var AttackRange = get_node("AttackRange");
 onready var AttackAnim = get_node("AttackAnim");
+onready var AxeSpawn = get_node("BulletSpawn")
 
 
 var run_speed = 300
@@ -114,16 +115,18 @@ func _BasicAttack():
 	for i in body:
 		if i.is_in_group("Enemy"):
 			i._hurt(5);
-			_FlameStacks(2);
+			_FlameStacks(1);
 		else:
 			pass;
-	if AttackAnim.animation_finished:
-		AttackAnim.visible = false;
+#	if AttackAnim.animation_finished:
+#		AttackAnim.visible = false;
 
 func _SpecialAttack():
 	print("Used: " + str(FlameStacks));
 	if FlameStacks == 0:
 		_BasicAttack();
 	elif FlameStacks >= 5:
-		VolcanAxe.instance();
-		pass
+		var Axe = VolcanAxe.instance();
+		get_parent().call_deferred("add_child", Axe)
+		Axe.add_to_group("Bullet", true);
+		Axe.position = AxeSpawn.global_position;
