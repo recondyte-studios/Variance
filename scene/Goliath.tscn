@@ -37,7 +37,7 @@ position = Vector2( -4.01709, -55.1738 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 1 )
 animation = "New Anim"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -77,6 +77,9 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounce"]
 position = Vector2( -3.17769, -35.352 )
 shape = SubResource( 4 )
+
+[node name="bouncePos" type="Position2D" parent="."]
+position = Vector2( 104.362, -65.3484 )
 [connection signal="body_entered" from="StalkRange" to="." method="_on_StalkRange_body_entered"]
 [connection signal="body_exited" from="StalkRange" to="." method="_on_StalkRange_body_exited"]
 [connection signal="body_entered" from="Claw" to="." method="_on_Claw_body_entered"]
