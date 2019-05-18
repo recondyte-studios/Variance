@@ -106,13 +106,12 @@ value = 10.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 4 )
 
->>>>>>> 08a249e94daf46d6a5e6bc8db87205c614916f09
 [connection signal="body_entered" from="StalkRange" to="." method="_on_StalkRange_body_entered"]
 [connection signal="body_exited" from="StalkRange" to="." method="_on_StalkRange_body_exited"]
 [connection signal="body_entered" from="Claw" to="." method="_on_Claw_body_entered"]
 [connection signal="body_exited" from="Claw" to="." method="_on_Claw_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-<<<<<<< HEAD
+
 [connection signal="body_entered" from="Bounce" to="." method="_on_Bounce_body_entered"]
-=======
+
 
