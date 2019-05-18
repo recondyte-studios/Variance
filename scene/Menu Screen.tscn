@@ -71,5 +71,12 @@ margin_bottom = 43.85
 size_flags_horizontal = 2
 size_flags_vertical = 0
 flat = true
+
 [connection signal="pressed" from="Panel/Buttons/Continue/NewSaveButton" to="Panel/Buttons" method="_on_NewSaveButton_pressed"]
+
+
+[node name="Continue" parent="Panel/Buttons" instance=ExtResource( 3 )]
+margin_top = 47.0
+margin_bottom = 208.0
+
 [connection signal="pressed" from="Panel/Buttons/New Game/StartButton" to="Panel/Buttons" method="_on_StartButton_pressed"]

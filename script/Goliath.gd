@@ -34,11 +34,13 @@ func _physics_process(delta):
 		if(self.get_position().x > position1):
 			check = 1;
 			direction *= -1
+			$AnimatedSprite.flip_h = false;
 	if(check == 1):
 		velocity.x= -SPEED;
 		if(self.get_position().x < position2):
 			check = 0;
 			direction *= -1
+			$AnimatedSprite.flip_h = true;
 	
 #	if $RayCast2D.is_colliding() == false:
 #		direction = direction * -1;
@@ -47,9 +49,9 @@ func _physics_process(delta):
 #		$wallDetection.set_cast_to(Vector2(0,raycastValue))
 		
 	if direction == 1:
-		$Sprite.flip_h = true;
+		$AnimatedSprite.flip_h = false;
 	else:
-		$Sprite.flip_h = false;
+		$AnimatedSprite.flip_h = true;
 	
 #	if $wallDetection.is_colliding() == true:
 #		var obj = $wallDetection.get_collider()
@@ -107,7 +109,14 @@ func _on_Timer_timeout():
 	if claw:
 		var randomInt = randi() % 11
 		if randomInt < 6:
-			player._subtractHealth(2)
+			player._subtractHealth(5)
+	pass # Replace with function body.
+
+
+func _on_Bounce_body_entered(body):
+	if body.get_name() == "player":
+		body._subtractHealth(5);
+		body.bounce = true
 	pass # Replace with function body.
 
 func _hurt(dmg):
