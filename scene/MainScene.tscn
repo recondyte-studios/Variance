@@ -16,24 +16,25 @@ format = 1
 tile_data = PoolIntArray( -131094, 0, 0, -131074, 0, 0, -196590, 0, 0, -196570, 0, 0, -196550, 0, 0, -196530, 0, 0, -196510, 4, 0, -196490, 6, 0, -196470, 6, 0, -196450, 5, 0, 524266, 2, 0, 524273, 2, 0, 524280, 2, 0, 524287, 2, 0, 458758, 2, 0, 458765, 2, 0, 458772, 2, 0, 458779, 2, 0, 458786, 2, 0, 458793, 2, 0, 458800, 2, 0, 458807, 2, 0, 458814, 2, 0, 458821, 2, 0, 458828, 2, 0, 458835, 2, 0, 458842, 2, 0, 458849, 2, 0, 458856, 2, 0, 458863, 2, 0, 458870, 2, 0, 458877, 2, 0, 458884, 2, 0, 458891, 2, 0, 458898, 2, 0, 458903, 2, 0, 458910, 2, 0, 458917, 2, 0, 458924, 2, 0 )
 
 [node name="Goliath" parent="." instance=ExtResource( 2 )]
-position = Vector2( 836.777, 383.562 )
+position = Vector2( 588.03, 383.562 )
 
 [node name="Goliath2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2333, 403.55 )
+position = Vector2( 1107.29, 403.55 )
 
 [node name="Goliath3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 3821.84, 383.41 )
+position = Vector2( 1611.95, 383.41 )
 
 [node name="Goliath4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 4952.28, 391.398 )
+position = Vector2( 2605.4, 391.398 )
 
 [node name="Goliath5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 6138.65, 407.376 )
+position = Vector2( 3132.05, 407.376 )
 
 [node name="Goliath6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 7237.14, 395.393 )
+position = Vector2( 3642.92, 395.393 )
 
 [node name="player" parent="." instance=ExtResource( 3 )]
+scale = Vector2( 1.62328, 1.66443 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 current = true
@@ -49,5 +50,4 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossZone"]
 shape = SubResource( 1 )
-
 [connection signal="body_entered" from="BossZone" to="BossZone" method="_on_BossZone_body_entered"]

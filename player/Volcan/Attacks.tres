@@ -1,20 +1,24 @@
-[gd_scene load_steps=6 format=2]
+[gd_resource type="SpriteFrames" load_steps=5 format=2]
 
 [ext_resource path="res://image/VolcanAxe/Volcan's Axe-1.png.png" type="Texture" id=1]
 [ext_resource path="res://image/VolcanAxe/Volcan's Axe-2.png.png" type="Texture" id=2]
 [ext_resource path="res://image/VolcanAxe/Volcan's Axe-3.png.png" type="Texture" id=3]
 [ext_resource path="res://image/VolcanAxe/Volcan's Axe-4.png.png" type="Texture" id=4]
 
-[sub_resource type="SpriteFrames" id=1]
+[resource]
 animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "Spin",
+"name": "AxeSpin",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "BasicAttack",
 "speed": 5.0
 } ]
-
-[node name="VolcanAxes" type="AnimatedSprite"]
-frames = SubResource( 1 )
-animation = "Spin"
-speed_scale = 2.0
-playing = true

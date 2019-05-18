@@ -1,26 +1,27 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://script/player.gd" type="Script" id=1]
-[ext_resource path="res://image/cat.png" type="Texture" id=2]
+[ext_resource path="res://player/Volcan/Volcan.gd" type="Script" id=1]
+[ext_resource path="res://image/Volcan-CharSelect.png" type="Texture" id=2]
 [ext_resource path="res://image/HealthBar-1.png.png" type="Texture" id=3]
 [ext_resource path="res://image/HealthBar-2.png.png" type="Texture" id=4]
-[ext_resource path="res://fonts/arkship_42.tres" type="DynamicFont" id=5]
+[ext_resource path="res://image/EmptyStatBar.png" type="Texture" id=5]
+[ext_resource path="res://image/FullStatBar.png" type="Texture" id=6]
+[ext_resource path="res://fonts/arkship_42.tres" type="DynamicFont" id=7]
+[ext_resource path="res://player/Volcan/Attacks.tres" type="SpriteFrames" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 12.8221 )
+
 [node name="player" type="KinematicBody2D"]
-position = Vector2( -554.146, 387.389 )
+scale = Vector2( 1.5748, 1.5748 )
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.552368, -4.97145 )
+scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 2 )
-vframes = 3
-hframes = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.524979, -4.08274 )
-scale = Vector2( 5.2789, 3.61626 )
-shape = SubResource( 1 )
 
 [node name="SlowWalkTimer" type="Timer" parent="."]
 wait_time = 15.0
@@ -39,16 +40,58 @@ texture_progress = ExtResource( 4 )
 fill_mode = 1
 nine_patch_stretch = true
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="ManaBar" type="TextureProgress" parent="CanvasLayer"]
+margin_left = 740.683
+margin_top = -59.9057
+margin_right = 1035.68
+margin_bottom = 235.094
+max_value = 30.0
+value = 30.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
+fill_mode = 1
+nine_patch_stretch = true
+
+[node name="HpLabel" type="Label" parent="CanvasLayer"]
 margin_left = 671.968
 margin_top = 13.0415
 margin_right = 760.968
 margin_bottom = 64.0415
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 7 )
 text = "HP: "
 align = 2
 
-[node name="StacksTimer" type="Timer" parent="."]
-autostart = true
+[node name="ManaLabel" type="Label" parent="CanvasLayer"]
+margin_left = 621.462
+margin_top = 58.2618
+margin_right = 757.462
+margin_bottom = 109.262
+custom_fonts/font = ExtResource( 7 )
+text = "Mana:"
+align = 2
 
+[node name="StacksTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 2.82018, 3.39092 )
+shape = SubResource( 1 )
+
+[node name="AttackRange" type="Area2D" parent="."]
+
+[node name="AttackField" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2( 18.8906, -4.08274 )
+scale = Vector2( 5.02849, 2.85358 )
+shape = SubResource( 2 )
+
+[node name="AttackAnim" type="AnimatedSprite" parent="."]
+position = Vector2( 31.8745, -8.13818 )
+frames = ExtResource( 8 )
+animation = "BasicAttack"
+
+[node name="RightBulletSpawn" type="Position2D" parent="."]
+position = Vector2( 56, 0 )
+
+[node name="LeftBulletSpawn" type="Position2D" parent="."]
+position = Vector2( -56, 0 )
 [connection signal="timeout" from="SlowWalkTimer" to="." method="_on_Timer_timeout"]

@@ -11,7 +11,8 @@ var stalking = false
 var i = 0
 var check = 0
 var SPEED = 200;
-var claw = false
+var claw = false;
+var Hp = 20;
 
 
 onready var player = get_node("../player")
@@ -20,6 +21,9 @@ onready var position2 = self.get_position().x;
 
 func _ready():
 	pass
+
+func _process(delta):
+	$HpBar.set_value(Hp);
 
 func _physics_process(delta):
 #	velocity.x = SPEED * direction;
@@ -105,3 +109,10 @@ func _on_Timer_timeout():
 		if randomInt < 6:
 			player._subtractHealth(2)
 	pass # Replace with function body.
+
+func _hurt(dmg):
+	print("you've hurt the Goliath's feelings for: " + str(dmg));
+	if Hp > 0:
+		Hp = Hp - dmg;
+		if Hp <= 0:
+			self.queue_free();

@@ -20,6 +20,5 @@ polygon = PoolVector2Array( -40.2263, -49.977, 40.0071, -50.1172, 40.0154, 50.15
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 scale = Vector2( 5.9459, 6.67895 )
-
 [connection signal="body_entered" from="." to="." method="_on_SpiderWeb_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

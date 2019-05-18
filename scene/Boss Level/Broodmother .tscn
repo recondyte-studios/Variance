@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4 ]
 }
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 285.264, 30.0896 )
 
 [node name="Broodmother " type="Node2D"]
@@ -50,7 +50,7 @@ position = Vector2( 82.6304, 14.0647 )
 texture = ExtResource( 3 )
 vframes = 3
 hframes = 2
-frame = 4
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boss/Sprite"]
 anims/EdgySpidyWalk = SubResource( 1 )
@@ -79,7 +79,7 @@ cast_to = Vector2( 0, 270 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/bounce"]
 position = Vector2( 63.0145, -109.944 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Position2D2" type="Position2D" parent="Boss"]
 position = Vector2( 149.931, -271.767 )
@@ -93,7 +93,6 @@ position = Vector2( 969.658, 189.573 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 current = true
-
 [connection signal="timeout" from="Boss/SpwnSpiderTimer" to="Boss" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Boss/BossWalkingTimer" to="Boss" method="_on_BossWalkingTimer_timeout"]
 [connection signal="timeout" from="Boss/PoisonTimer" to="Boss" method="_on_PoisonTimer_timeout"]
