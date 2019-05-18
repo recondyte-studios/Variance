@@ -49,6 +49,17 @@ shape = SubResource( 2 )
 wait_time = 0.5
 autostart = true
 
+
+[node name="Bounce" type="Area2D" parent="."]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounce"]
+position = Vector2( -3.17769, -35.352 )
+shape = SubResource( 4 )
+
+[node name="bouncePos" type="Position2D" parent="."]
+position = Vector2( 104.362, -65.3484 )
+
 [node name="HpBar" type="TextureProgress" parent="."]
 margin_left = -65.3157
 margin_top = -127.132
@@ -58,8 +69,10 @@ max_value = 20.0
 value = 10.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 4 )
+
 [connection signal="body_entered" from="StalkRange" to="." method="_on_StalkRange_body_entered"]
 [connection signal="body_exited" from="StalkRange" to="." method="_on_StalkRange_body_exited"]
 [connection signal="body_entered" from="Claw" to="." method="_on_Claw_body_entered"]
 [connection signal="body_exited" from="Claw" to="." method="_on_Claw_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
