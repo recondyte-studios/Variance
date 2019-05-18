@@ -107,3 +107,10 @@ func _on_Timer_timeout():
 		if randomInt < 6:
 			player._subtractHealth(5)
 	pass # Replace with function body.
+
+
+func _on_Bounce_body_entered(body):
+	if body.get_name() == "player":
+		body._subtractHealth(5);
+		body.bounce = true
+	pass # Replace with function body.
