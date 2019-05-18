@@ -9,6 +9,7 @@ var timer = false;
 var health = 300;
 var bounce = false
 
+var miniEnemyBounce = false
 
 onready var sprite = get_node("Sprite");
 onready var Volcan = load("res://player/Volcan.gd");
@@ -67,8 +68,14 @@ func _physics_process(delta):
 	if bounce == true:
 		velocity.x += run_speed;
 		velocity.y = jump_speed
-		if position.y > get_node("../Boss/Position2D2").get_position().y:
+		if position.y > get_node("../Boss/bouncePos").get_position().y:
 			bounce = false
+	if miniEnemyBounce == true:
+		velocity.x += run_speed;
+		velocity.y = jump_speed
+		if position.y > get_node("../Goliath/bouncePos").get_position().y:
+			miniEnemyBounce = false
+	
 
 
 func _on_Timer_timeout():

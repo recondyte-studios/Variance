@@ -116,7 +116,7 @@ func _on_Timer_timeout():
 func _on_Bounce_body_entered(body):
 	if body.get_name() == "player":
 		body._subtractHealth(5);
-		body.bounce = true
+		body.miniEnemyBounce = true
 	pass # Replace with function body.
 
 func _hurt(dmg):

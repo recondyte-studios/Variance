@@ -82,7 +82,6 @@ offset = Vector2( 3, 0 )
 current = true
 limit_left = -500
 limit_right = 1500
-
 [connection signal="body_entered" from="Boss/stalking" to="Boss" method="_on_stalking_body_entered"]
 [connection signal="body_exited" from="Boss/stalking" to="Boss" method="_on_stalking_body_exited"]
 [connection signal="body_entered" from="Boss/Claw" to="Boss" method="_on_Claw_body_entered"]

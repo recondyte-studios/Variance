@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://image/suburbBackground.png" type="Texture" id=1]
 [ext_resource path="res://image/tile.png" type="Texture" id=2]
@@ -10,12 +10,13 @@
 [ext_resource path="res://image/sewer.png" type="Texture" id=8]
 [ext_resource path="res://image/sewer_tile.png" type="Texture" id=9]
 [ext_resource path="res://image/sewer-top.png" type="Texture" id=10]
+[ext_resource path="res://image/sewer-water.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32.0476, 32.0522 )
 
 [node name="Tile Scene" type="Node2D"]
-position = Vector2( 5515.37, 263.653 )
+position = Vector2( 122.218, 215.785 )
 
 [node name="Suburb Background" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -95,3 +96,7 @@ position = Vector2( 4231.41, 959.903 )
 texture = ExtResource( 10 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 512, 512 )
+
+[node name="sewer-water" type="Sprite" parent="."]
+position = Vector2( 1039.43, 1660.55 )
+texture = ExtResource( 11 )

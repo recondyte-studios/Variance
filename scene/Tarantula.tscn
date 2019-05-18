@@ -3,7 +3,7 @@
 [ext_resource path="res://script/Tarantula.gd" type="Script" id=1]
 [ext_resource path="res://image/spidyman-animation/Spidyman.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "walking"
 length = 0.8
 loop = true
@@ -21,10 +21,10 @@ tracks/0/keys = {
 "values": [ 1, 0, 1, 2, 3 ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 85.8786, 29.7089 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10.418, 7.70706 )
 
 [node name="Tarantula" type="KinematicBody2D"]
@@ -39,11 +39,11 @@ frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "walking"
-anims/walking = SubResource( 3 )
+anims/walking = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -7.00769, -12.8474 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Bite" type="Area2D" parent="."]
 position = Vector2( -5.83974, -9.78835 )
@@ -54,7 +54,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bite"]
 position = Vector2( 0, -10 )
 scale = Vector2( 9, 5 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 20.4391, -12.8474 )
@@ -73,7 +73,6 @@ cast_to = Vector2( 0, 150 )
 [node name="BiteTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
-
 [connection signal="body_entered" from="Bite" to="." method="_on_Bite_body_entered"]
 [connection signal="body_exited" from="Bite" to="." method="_on_Bite_body_exited"]
 [connection signal="timeout" from="BiteTimer" to="." method="_on_BiteTimer_timeout"]
