@@ -19,5 +19,4 @@ shape = SubResource( 1 )
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 position = Vector2( 1.25472, -8.2452 )
 scale = Vector2( 5.35562, 1 )
-
 [connection signal="body_entered" from="." to="." method="_on_SpiderPoison_body_entered"]

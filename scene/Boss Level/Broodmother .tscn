@@ -50,7 +50,7 @@ position = Vector2( 82.6304, 14.0647 )
 texture = ExtResource( 3 )
 vframes = 3
 hframes = 2
-frame = 4
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boss/Sprite"]
 anims/EdgySpidyWalk = SubResource( 1 )
@@ -81,7 +81,7 @@ cast_to = Vector2( 0, 270 )
 position = Vector2( 63.0145, -109.944 )
 shape = SubResource( 2 )
 
-[node name="bouncePos" type="Position2D" parent="Boss"]
+[node name="Position2D2" type="Position2D" parent="Boss"]
 position = Vector2( 149.931, -271.767 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boss"]

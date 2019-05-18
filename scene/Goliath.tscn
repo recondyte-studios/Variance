@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://script/Goliath.gd" type="Script" id=1]
 [ext_resource path="res://image/GoliathRunFinal/GoliathRun_0.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://image/GoliathRunFinal/GoliathRun_2.png" type="Texture" id=4]
 [ext_resource path="res://image/GoliathRunFinal/GoliathRun_3.png" type="Texture" id=5]
 [ext_resource path="res://image/GoliathRunFinal/GoliathRun_4.png" type="Texture" id=6]
+[ext_resource path="res://image/HealthBar-1.png.png" type="Texture" id=7]
+[ext_resource path="res://image/HealthBar-2.png.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -81,6 +83,18 @@ shape = SubResource( 4 )
 
 [node name="bouncePos" type="Position2D" parent="."]
 position = Vector2( 104.362, -65.3484 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HpBar" type="TextureProgress" parent="CanvasLayer"]
+visible = false
+margin_left = 429.167
+margin_top = 353.749
+margin_right = 557.167
+margin_bottom = 481.749
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
+fill_mode = 1
 [connection signal="body_entered" from="StalkRange" to="." method="_on_StalkRange_body_entered"]
 [connection signal="body_exited" from="StalkRange" to="." method="_on_StalkRange_body_exited"]
 [connection signal="body_entered" from="Claw" to="." method="_on_Claw_body_entered"]
