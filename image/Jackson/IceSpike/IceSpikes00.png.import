@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/IceSpikes00.png-25eb8ff6d17816ed0cb9575570edca4c.stex"
+path="res://.import/IceSpikes00.png-c2ded6b9ec59d0ca76563cb5bccc9b0c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/IceSpike/IceSpikes00.png"
-dest_files=[ "res://.import/IceSpikes00.png-25eb8ff6d17816ed0cb9575570edca4c.stex" ]
+source_file="res://image/Jackson/IceSpike/IceSpikes00.png"
+dest_files=[ "res://.import/IceSpikes00.png-c2ded6b9ec59d0ca76563cb5bccc9b0c.stex" ]
 
 [params]
 
