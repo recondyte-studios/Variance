@@ -15,6 +15,7 @@ var SPEED = 200;
 var claw = false
 var check =0 
 var fireball = false
+var stealthActive = false
 
 
 onready var player = get_node("../player")
@@ -74,7 +75,7 @@ func _on_Claw_body_exited(body):
 
 
 func _on_Timer_timeout():
-	if claw:
+	if claw && stealthActive == false:
 		var randomInt = randi() % 11
 		if randomInt < 6:
 			player._subtractHealth(2)
@@ -98,7 +99,7 @@ func _on_stalking_body_exited(body):
 
 
 func _on_FireballTimer_timeout():
-	if fireball:
+	if fireball && stealthActive == false:
 		var randomInt = randi() % 11
 		if randomInt > 6:
 			SPEED = 100

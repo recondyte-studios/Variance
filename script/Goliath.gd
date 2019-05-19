@@ -13,6 +13,7 @@ var check = 0
 var SPEED = 200;
 var claw = false;
 var Hp = 20;
+var stealthActive = false
 
 
 onready var player = get_node("../player")
@@ -67,7 +68,7 @@ func _physics_process(delta):
 #	else:
 #		i = 0
 		
-	if stalking:
+	if stealthActive == false && stalking:
 		SPEED = 350
 		if player.get_position().x > self.get_position().x:
 			velocity.x = SPEED
@@ -106,7 +107,7 @@ func _on_Claw_body_exited(body):
 
 
 func _on_Timer_timeout():
-	if claw:
+	if claw && stealthActive == false:
 		var randomInt = randi() % 11
 		if randomInt < 6:
 			player._subtractHealth(5)

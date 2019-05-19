@@ -15,6 +15,7 @@ var raycastValue = 250
 var spwn= false
 var walk = false
 var poisonCounter = 0
+var stealthActive = false
 
 onready var spawnPt = [get_node("../spawnPt1"), get_node("../spawnPt2"), get_node("../spawnPt3")]
 onready var player = get_node("../player")
@@ -49,7 +50,7 @@ func _physics_process(delta):
 
 func _shootWEB():
 	var obj = get_node("spiderWeb").get_collider()
-	if obj.get_name() == "player":
+	if obj.get_name() == "player" && stealthActive == false:
 		#walk = false
 		while i < 6:
 			var spiderWeb = SPIDERWEB.instance();
@@ -66,7 +67,7 @@ func _shootWEB():
 
 func _poisonPlayer():
 	var obj = get_node("spiderWeb").get_collider()
-	if obj.get_name() == "player":
+	if obj.get_name() == "player" && stealthActive == false:
 		#walk = false
 		while i < 6:
 			var poison = POISON.instance();
