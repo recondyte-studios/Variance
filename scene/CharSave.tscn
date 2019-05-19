@@ -3,8 +3,6 @@
 [ext_resource path="res://image/goliath_placeholder.png" type="Texture" id=1]
 [ext_resource path="res://script/CharacterList.gd" type="Script" id=2]
 
-
-
 [node name="CharSave" type="Node2D"]
 
 [node name="Volcan" type="Sprite" parent="."]
@@ -19,5 +17,4 @@ margin_top = 434.0
 margin_right = 583.0
 margin_bottom = 454.0
 text = "Save"
-
 [connection signal="pressed" from="Save" to="Volcan" method="_on_Save_pressed"]
