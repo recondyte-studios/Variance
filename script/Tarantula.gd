@@ -11,6 +11,7 @@ var direction = 1;
 var i = 0
 var raycastValue = 250
 var bite = false
+var stealthActive = false
 
 onready var player = get_node("../player")
 
@@ -32,7 +33,7 @@ func _physics_process(delta):
 	
 	if $spiderWeb.is_colliding() == true:
 		var obj = get_node("spiderWeb").get_collider()
-		if obj.get_name() == "player":
+		if obj.get_name() == "player" && stealthActive ==false:
 			while i < 6:
 				var spiderWeb = SPIDERWEB.instance();
 				get_parent().call_deferred("add_child", spiderWeb)
@@ -65,7 +66,7 @@ func _on_Bite_body_exited(body):
 
 
 func _on_BiteTimer_timeout():
-	if bite:
+	if bite && stealthActive == false:
 		var randomInt = randi() % 11
 		if randomInt < 6:
 			player._subtractHealth(2)
