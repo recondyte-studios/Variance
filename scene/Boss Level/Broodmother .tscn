@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://script/Rima.gd" type="Script" id=1]
-[ext_resource path="res://scene/Tile/tileMap.tres" type="TileSet" id=2]
-[ext_resource path="res://script/Broodmother.gd" type="Script" id=3]
-[ext_resource path="res://image/spidyman-animation/EdgySpidyMan.png" type="Texture" id=4]
-[ext_resource path="res://scene/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scene/Tile/tileMap.tres" type="TileSet" id=1]
+[ext_resource path="res://script/Broodmother.gd" type="Script" id=2]
+[ext_resource path="res://image/spidyman-animation/EdgySpidyMan.png" type="Texture" id=3]
+[ext_resource path="res://scene/player.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "EdgySpidyWalk"
@@ -27,12 +26,11 @@ tracks/0/keys = {
 extents = Vector2( 285.264, 30.0896 )
 
 [node name="Broodmother " type="Node2D"]
-script = ExtResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 1 )
 format = 1
-tile_data = PoolIntArray( -262148, 1, 0, -196612, 1, 0, -131076, 1, 0, -65543, 7, 0, -65540, 1, 0, -131059, 7, 0, -131039, 7, 0, -4, 1, 0, -65503, 1, 0, 65532, 1, 0, 33, 1, 0, 131068, 1, 0, 65569, 1, 0, 196604, 1, 0, 131105, 1, 0, 262140, 1, 0, 196641, 1, 0, 327676, 1, 0, 262177, 1, 0, 393212, 1, 0, 327713, 1, 0, 458748, 1, 0, 393249, 1, 0, 524284, 1, 0, 458785, 1, 0, 589820, 1, 0, 589821, 1, 0, 589822, 1, 0, 589823, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 524312, 1, 0, 524313, 1, 0, 524314, 1, 0, 524315, 1, 0, 524316, 1, 0, 524317, 1, 0, 524318, 1, 0, 524319, 1, 0, 524320, 1, 0, 524321, 1, 0 )
+tile_data = PoolIntArray( -589831, 9, 0, -655359, 9, 0, -655351, 9, 0, -655343, 9, 0, -655335, 9, 0, -655327, 9, 0, -262148, 8, 0, -196612, 8, 0, -131076, 8, 0, -65563, 7, 0, -65543, 7, 0, -65540, 8, 0, -131059, 7, 0, -131039, 7, 0, -4, 8, 0, -65503, 8, 0, 65532, 8, 0, 33, 8, 0, 131068, 8, 0, 65569, 8, 0, 196604, 8, 0, 131105, 8, 0, 262140, 8, 0, 196641, 8, 0, 327676, 8, 0, 262177, 8, 0, 393212, 8, 0, 327713, 8, 0, 458748, 8, 0, 393249, 8, 0, 524284, 8, 0, 458785, 8, 0, 589820, 8, 0, 589821, 8, 0, 589822, 8, 0, 589823, 8, 0, 524288, 8, 0, 524289, 8, 0, 524290, 8, 0, 524291, 8, 0, 524292, 8, 0, 524293, 8, 0, 524294, 8, 0, 524295, 8, 0, 524296, 8, 0, 524297, 8, 0, 524298, 8, 0, 524299, 8, 0, 524300, 8, 0, 524301, 8, 0, 524302, 8, 0, 524303, 8, 0, 524304, 8, 0, 524305, 8, 0, 524306, 8, 0, 524307, 8, 0, 524308, 8, 0, 524309, 8, 0, 524310, 8, 0, 524311, 8, 0, 524312, 8, 0, 524313, 8, 0, 524314, 8, 0, 524315, 8, 0, 524316, 8, 0, 524317, 8, 0, 524318, 8, 0, 524319, 8, 0, 524320, 8, 0, 524321, 8, 0, 655337, 10, 0, 655345, 10, 0, 655353, 10, 0, 589825, 10, 0, 589833, 10, 0, 589841, 10, 0, 589849, 10, 0, 589857, 10, 0 )
 
 [node name="spawnPt1" type="Position2D" parent="."]
 position = Vector2( 113.41, 21.918 )
@@ -45,11 +43,11 @@ position = Vector2( 1052.14, 18.5661 )
 
 [node name="Boss" type="KinematicBody2D" parent="."]
 position = Vector2( 42.0273, 434.718 )
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Boss"]
 position = Vector2( 82.6304, 14.0647 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 vframes = 3
 hframes = 2
 frame = 1
@@ -90,11 +88,13 @@ position = Vector2( 149.931, -271.767 )
 visible = false
 polygon = PoolVector2Array( -160.217, -64.5223, -82.4052, -125.043, 17.5615, -122.341, 84.5663, -54.7958, 114.286, -67.7645, 170.484, -61.8205, 256.941, -45.0693, 345.02, -4.54227, 357.449, 57.0589, 345.02, 70.5679, -214.253, 70.0276, -222.899, 31.6619, -164, -23.4549 )
 
-[node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 969.658, 189.573 )
+[node name="player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1371.13, 357.934 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 current = true
+limit_left = -200
+limit_right = 2100
 [connection signal="timeout" from="Boss/SpwnSpiderTimer" to="Boss" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Boss/BossWalkingTimer" to="Boss" method="_on_BossWalkingTimer_timeout"]
 [connection signal="timeout" from="Boss/PoisonTimer" to="Boss" method="_on_PoisonTimer_timeout"]
