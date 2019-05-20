@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/VolcanRun_1.png-a5252d231f887e8d5ec91f4c98843c8c.stex"
+path="res://.import/VolcanIdle-3.png.png-fe54b5dea8b9e6a46ead4a8aa2be0848.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/VolcanRunFinal/VolcanRun_1.png"
-dest_files=[ "res://.import/VolcanRun_1.png-a5252d231f887e8d5ec91f4c98843c8c.stex" ]
+source_file="res://player/Volcan/Idle/VolcanIdle-3.png.png"
+dest_files=[ "res://.import/VolcanIdle-3.png.png-fe54b5dea8b9e6a46ead4a8aa2be0848.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

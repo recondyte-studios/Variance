@@ -19,10 +19,11 @@ func _physics_process(delta):
 #func _on_VisibilityNotifier2D_screen_exited():
 #	queue_free()
 #	pass # replace with function body
-#
+
 
 func _on_VortexAxe_body_entered(body):
-	if body.is_in_group == "Enemy":
-		body.hurt(20)
+	if body.is_in_group("Enemy") == true:
+		body._hurt(10)
 		queue_free();
-	pass # replace with function body
+	else:
+		pass # replace with function body
