@@ -1,28 +1,44 @@
-[gd_resource type="SpriteFrames" load_steps=10 format=2]
+[gd_resource type="SpriteFrames" load_steps=16 format=2]
 
-[ext_resource path="res://image/VolcanRunFinal/VolcanFly-1.png.png" type="Texture" id=1]
-[ext_resource path="res://image/VolcanRunFinal/VolcanFly-2.png.png" type="Texture" id=2]
-[ext_resource path="res://image/VolcanRunFinal/VolcanFly-3.png.png" type="Texture" id=3]
-[ext_resource path="res://player/Volcan/Idle/VolcanIdle-1.png.png" type="Texture" id=4]
-[ext_resource path="res://player/Volcan/Idle/VolcanIdle-2.png.png" type="Texture" id=5]
-[ext_resource path="res://player/Volcan/Idle/VolcanIdle-3.png.png" type="Texture" id=6]
-[ext_resource path="res://player/Volcan/AxeThrowAnim/VolcanAxeThrow-1.png.png" type="Texture" id=7]
-[ext_resource path="res://player/Volcan/AxeThrowAnim/VolcanAxeThrow-2.png.png" type="Texture" id=8]
-[ext_resource path="res://player/Volcan/AxeThrowAnim/VolcanAxeThrow-3.png.png" type="Texture" id=9]
+[ext_resource path="res://image/Jackson/jump/JacksonJump0.png" type="Texture" id=1]
+[ext_resource path="res://image/Jackson/jump/JacksonJump1.png" type="Texture" id=2]
+[ext_resource path="res://image/Jackson/jump/JacksonJump3.png" type="Texture" id=3]
+[ext_resource path="res://image/Jackson/jump/JacksonJump2.png" type="Texture" id=4]
+[ext_resource path="res://image/Jackson/jump/JacksonJump4.png" type="Texture" id=5]
+[ext_resource path="res://image/Jackson/jump/JacksonJump5.png" type="Texture" id=6]
+[ext_resource path="res://image/VolcanRunFinal/VolcanFly-1.png.png" type="Texture" id=7]
+[ext_resource path="res://image/VolcanRunFinal/VolcanFly-2.png.png" type="Texture" id=8]
+[ext_resource path="res://image/VolcanRunFinal/VolcanFly-3.png.png" type="Texture" id=9]
+[ext_resource path="res://player/Volcan/AxeThrowAnim/VolcanAxeThrow-1.png.png" type="Texture" id=10]
+[ext_resource path="res://player/Volcan/AxeThrowAnim/VolcanAxeThrow-2.png.png" type="Texture" id=11]
+[ext_resource path="res://player/Volcan/AxeThrowAnim/VolcanAxeThrow-3.png.png" type="Texture" id=12]
+[ext_resource path="res://player/Volcan/Idle/VolcanIdle-1.png.png" type="Texture" id=13]
+[ext_resource path="res://player/Volcan/Idle/VolcanIdle-2.png.png" type="Texture" id=14]
+[ext_resource path="res://player/Volcan/Idle/VolcanIdle-3.png.png" type="Texture" id=15]
 
 [resource]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Jackson_Jump",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "Jackson_Run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Volcan_Fly",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "Volcan_Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "Volcan_AxeThrow",
 "speed": 5.0
