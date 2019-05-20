@@ -3,22 +3,22 @@
 [ext_resource path="res://image/suburbBackground.png" type="Texture" id=1]
 [ext_resource path="res://image/tile.png" type="Texture" id=2]
 [ext_resource path="res://image/sewer-water.png" type="Texture" id=3]
-[ext_resource path="res://image/street.png" type="Texture" id=4]
-[ext_resource path="res://image/suburbBackground-extra.png" type="Texture" id=5]
-[ext_resource path="res://image/suburbBackground-end.png" type="Texture" id=6]
-[ext_resource path="res://image/suburbBackground-grass.png" type="Texture" id=7]
+[ext_resource path="res://image/suburbBackground-grass.png" type="Texture" id=4]
+[ext_resource path="res://image/street.png" type="Texture" id=5]
+[ext_resource path="res://image/suburbBackground-extra.png" type="Texture" id=6]
+[ext_resource path="res://image/suburbBackground-end.png" type="Texture" id=7]
 [ext_resource path="res://image/suburbBackground-full.png" type="Texture" id=8]
 [ext_resource path="res://image/sewer.png" type="Texture" id=9]
 [ext_resource path="res://image/sewer_tile.png" type="Texture" id=10]
 [ext_resource path="res://image/sewer-top.png" type="Texture" id=11]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( -17.8, -17.4991, 18.1829, -17.4775, 18.1931, 17.0813, -17.7995, 17.0508 )
 
-[sub_resource type="ConvexPolygonShape2D" id=2]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( -239.955, -134.969, 240.013, -135.015, 240.013, 135.004, -239.978, 135.015 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.0476, 32.0522 )
 
 [resource]
@@ -44,12 +44,12 @@ extents = Vector2( 32.0476, 32.0522 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 1 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1.77825, 0, 0, 1.85242, 31.6655, 32.4011 )
 } ]
 1/z_index = 0
 2/name = "Street"
-2/texture = ExtResource( 4 )
+2/texture = ExtResource( 5 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 0, 0, 480, 270 )
@@ -60,12 +60,12 @@ extents = Vector2( 32.0476, 32.0522 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 2 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 240, 135 )
 } ]
 2/z_index = 0
 3/name = "extra-suburb"
-3/texture = ExtResource( 5 )
+3/texture = ExtResource( 6 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 0, 0, 1280, 720 )
@@ -75,7 +75,7 @@ extents = Vector2( 32.0476, 32.0522 )
 3/shapes = [  ]
 3/z_index = 0
 4/name = "end-suburb"
-4/texture = ExtResource( 6 )
+4/texture = ExtResource( 7 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 0, 0, 1280, 720 )
@@ -85,7 +85,7 @@ extents = Vector2( 32.0476, 32.0522 )
 4/shapes = [  ]
 4/z_index = 0
 5/name = "grass-suburb"
-5/texture = ExtResource( 7 )
+5/texture = ExtResource( 4 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 0, 0, 1280, 720 )
@@ -126,7 +126,7 @@ extents = Vector2( 32.0476, 32.0522 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 32, 32 )
 } ]
 8/z_index = 0
@@ -150,3 +150,13 @@ extents = Vector2( 32.0476, 32.0522 )
 10/navigation_offset = Vector2( 256, 256 )
 10/shapes = [  ]
 10/z_index = 0
+11/name = "grass-suburb-flip"
+11/texture = ExtResource( 4 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 0, 0, 1280, 720 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 640, 360 )
+11/navigation_offset = Vector2( 640, 360 )
+11/shapes = [  ]
+11/z_index = 0

@@ -42,7 +42,7 @@ position = Vector2( -4.01709, -55.1738 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 1 )
 animation = "New Anim"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -87,13 +87,14 @@ shape = SubResource( 4 )
 [node name="bouncePos" type="Position2D" parent="."]
 position = Vector2( 104.362, -65.3484 )
 
-[node name="HpBar" type="TextureProgress" parent="."]
-margin_left = -52.171
-margin_top = -112.48
-margin_right = 75.829
-margin_bottom = 15.5202
-max_value = 20.0
-value = 10.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HpBar" type="TextureProgress" parent="CanvasLayer"]
+visible = false
+margin_left = 429.167
+margin_top = 353.749
+margin_right = 557.167
+margin_bottom = 481.749
 texture_under = ExtResource( 7 )
 texture_progress = ExtResource( 8 )
 fill_mode = 1

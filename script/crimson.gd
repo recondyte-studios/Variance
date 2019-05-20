@@ -32,11 +32,11 @@ func _physics_process(delta):
 	SPEED = 200
 	
 	if direction == 1:
-		$Sprite.flip_h = true;
-		$Position2D.position.x *= -1
+		$AnimatedSprite.flip_h = false;
+		$FireballPos.position.x *= -1
 	else:
-		$Sprite.flip_h = false;
-		$Position2D.position.x *= -1
+		$AnimatedSprite.flip_h = true;
+		$FireballPos.position.x *= -1
 	
 	if(check == 0):
 		velocity.x= SPEED;
@@ -107,7 +107,7 @@ func _on_FireballTimer_timeout():
 			get_parent().call_deferred("add_child", fireball)
 			if direction != 1:
 				fireball.direction*=-1
-			fireball.position = $Position2D.global_position;
+			fireball.position = $FireballPos.global_position;
 	pass # Replace with function body.
 
 

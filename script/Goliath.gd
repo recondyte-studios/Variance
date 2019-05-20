@@ -24,7 +24,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	$HpBar.set_value(Hp);
+	$CanvasLayer/HpBar.set_value(Hp);
 
 func _physics_process(delta):
 #	velocity.x = SPEED * direction;

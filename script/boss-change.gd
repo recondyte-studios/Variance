@@ -1,5 +1,8 @@
 extends Area2D
 
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,7 +13,7 @@ func _ready():
 #	pass
 
 
-func _on_BossZone_body_entered(body):
+func _on_bosschange_body_entered(body):
 	if body.get_name() == "player":
-		get_tree().change_scene("res://scene/Boss Level/Crimson.tscn");
+		get_tree().change_scene("res://scene/Boss Level/Broodmother .tscn");
 	pass # Replace with function body.
