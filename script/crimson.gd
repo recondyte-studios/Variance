@@ -5,6 +5,7 @@ const FLOOR = Vector2(0,-1);
 const FIREBALL = preload("res://scene/Fireball.tscn")
 
 
+
 #var CrimsonHealth = 300;
 var velocity = Vector2();
 var direction = 1;
@@ -16,6 +17,7 @@ var claw = false
 var check =0 
 var fireball = false
 var stealthActive = false
+var Hp = 160
 
 
 onready var player = get_node("../player")
@@ -116,3 +118,10 @@ func _on_bounce_body_entered(body):
 		body._subtractHealth(2);
 		body.bounce = true
 	pass # Replace with function body.
+
+func _hurt(dmg):
+	print("you've hurt the Goliath's feelings for: " + str(dmg));
+	if Hp > 0:
+		Hp = Hp - dmg;
+		if Hp <= 0:
+			self.queue_free();
