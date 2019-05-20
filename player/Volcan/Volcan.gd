@@ -54,7 +54,9 @@ func get_input():
 	var right = Input.is_action_pressed('ui_right');
 	var left = Input.is_action_pressed('ui_left');
 	var jump = Input.is_action_just_pressed('ui_up');
+	#press z 
 	var baseAttack = Input.is_action_just_pressed("BasicAttack");
+	#press x
 	var specialAttack = Input.is_action_just_pressed("SpecialAttack");
 	
 	if is_on_floor() and jump:

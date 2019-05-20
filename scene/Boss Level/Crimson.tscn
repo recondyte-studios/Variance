@@ -50,7 +50,7 @@ position = Vector2( 145.761, -12.696 )
 position = Vector2( -6.28577, -156.359 )
 frames = SubResource( 5 )
 animation = "Run"
-frame = 3
+frame = 4
 playing = true
 __meta__ = {
 "_edit_lock_": true
