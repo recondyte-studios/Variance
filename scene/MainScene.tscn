@@ -13,30 +13,6 @@ extents = Vector2( 224.858, 229.964 )
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 format = 1
-
-tile_data = PoolIntArray( -131094, 0, 0, -131089, 1, 0, -131074, 0, 0, -196590, 0, 0, -196570, 0, 0, -196550, 0, 0, -196530, 0, 0, -196510, 4, 0, -196490, 6, 0, -196470, 6, 0, -196450, 5, 0, 524266, 2, 0, 524273, 2, 0, 524280, 2, 0, 524287, 2, 0, 458758, 2, 0, 458765, 2, 0, 458772, 2, 0, 458779, 2, 0, 458786, 2, 0, 458793, 2, 0, 458800, 2, 0, 458807, 2, 0, 458814, 2, 0, 458821, 2, 0, 458828, 2, 0, 458835, 2, 0, 458842, 2, 0, 458849, 2, 0, 458856, 2, 0, 458863, 2, 0, 458870, 2, 0, 458877, 2, 0, 458884, 2, 0, 458891, 2, 0, 458898, 2, 0, 458903, 2, 0, 458910, 2, 0, 458917, 2, 0, 458924, 2, 0 )
-
-[node name="Goliath" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2185.19, 224.214 )
-
-[node name="Goliath" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1583.07, 235.364 )
-
-[node name="Goliath2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2821.1, 169.255 )
-
-[node name="Goliath3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 3400.91, 150.528 )
-
-[node name="Goliath4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 4162.42, 151.387 )
-
-[node name="Goliath5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 4945.03, 204.273 )
-
-[node name="Goliath6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 5758.51, 192.29 )
-
 tile_data = PoolIntArray( -131094, 0, 0, -131074, 0, 0, -196590, 0, 0, -196570, 0, 0, -196550, 0, 0, -196530, 0, 0, -196510, 4, 0, -196490, 6, 0, -196470, 6, 0, -196450, 5, 0, -196430, 6, 0, -196410, 6, 0, -196390, 6, 0, 524266, 2, 0, 524273, 2, 0, 524280, 2, 0, 524287, 2, 0, 458758, 2, 0, 458765, 2, 0, 458772, 2, 0, 458779, 2, 0, 458786, 2, 0, 458793, 2, 0, 458800, 2, 0, 458807, 2, 0, 458814, 2, 0, 458821, 2, 0, 458828, 2, 0, 458835, 2, 0, 458842, 2, 0, 458849, 2, 0, 458856, 2, 0, 458863, 2, 0, 458870, 2, 0, 458877, 2, 0, 458884, 2, 0, 458891, 2, 0, 458898, 2, 0, 458903, 2, 0, 458910, 2, 0, 458917, 2, 0, 458924, 2, 0, 458931, 2, 0, 458938, 2, 0, 458945, 2, 0, 458952, 2, 0, 458959, 2, 0, 458966, 2, 0, 458973, 2, 0, 458980, 2, 0 )
 
 [node name="Goliath" parent="." instance=ExtResource( 2 )]
@@ -58,26 +34,15 @@ position = Vector2( 4908.55, 392.139 )
 position = Vector2( 6109.11, 401.9 )
 
 [node name="Goliath9" parent="." instance=ExtResource( 2 )]
-position = Vector2( 7024.63, 179.603 )
+position = Vector2( 7342.2, 401.9 )
 
 [node name="Goliath10" parent="." instance=ExtResource( 2 )]
-position = Vector2( 7740.78, 165.765 )
+position = Vector2( 8471.18, 398.647 )
 
 [node name="Goliath11" parent="." instance=ExtResource( 2 )]
-position = Vector2( 8341.72, 153.002 )
+position = Vector2( 9421.45, 407.056 )
 
 [node name="Goliath12" parent="." instance=ExtResource( 2 )]
-
-position = Vector2( 8928.21, 148.797 )
-
-[node name="player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -49.25, 397.346 )
-scale = Vector2( 6.64866, 6.8172 )
-
-[node name="Camera2D" type="Camera2D" parent="player"]
-scale = Vector2( 0.700102, -0.631788 )
-offset = Vector2( 200, -120 )
-
 position = Vector2( 10325.5, 402.851 )
 
 [node name="Goliath13" parent="." instance=ExtResource( 2 )]
@@ -88,14 +53,12 @@ position = Vector2( -49.25, 397.346 )
 scale = Vector2( 1.62328, 1.66443 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
-
 current = true
-zoom = Vector2( 1.4, 1.4 )
 limit_left = -1500
 
 [node name="BossZone" type="Area2D" parent="."]
 editor/display_folded = true
-position = Vector2( 9658.2, 243.929 )
+position = Vector2( 14757.3, 280.968 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
@@ -103,20 +66,4 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossZone"]
 shape = SubResource( 1 )
-
-
-[node name="Boundry" type="StaticBody2D" parent="."]
-position = Vector2( -384.207, 17.2677 )
-scale = Vector2( 8.73722, 74.4972 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundry"]
-shape = SubResource( 2 )
-
-[node name="Boundry2" type="StaticBody2D" parent="."]
-position = Vector2( -384.207, 17.2677 )
-scale = Vector2( 8.73722, 74.4972 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundry2"]
-shape = SubResource( 2 )
-
 [connection signal="body_entered" from="BossZone" to="BossZone" method="_on_BossZone_body_entered"]
