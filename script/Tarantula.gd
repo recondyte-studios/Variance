@@ -12,6 +12,7 @@ var i = 0
 var raycastValue = 250
 var bite = false
 var stealthActive = false
+var Hp = 40
 
 onready var player = get_node("../player")
 
@@ -72,3 +73,10 @@ func _on_BiteTimer_timeout():
 			player._subtractHealth(2)
 			print(player.health)
 	pass # Replace with function body.
+
+func _hurt(dmg):
+	print("you've hurt the Goliath's feelings for: " + str(dmg));
+	if Hp > 0:
+		Hp = Hp - dmg;
+		if Hp <= 0:
+			self.queue_free();

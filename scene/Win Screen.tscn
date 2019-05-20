@@ -1,0 +1,50 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://fonts/arkship_42.tres" type="DynamicFont" id=1]
+[ext_resource path="res://image/variance title sequence/TitleScene_0.png" type="Texture" id=2]
+[ext_resource path="res://image/variance title sequence/TitleScene_1.png" type="Texture" id=3]
+[ext_resource path="res://image/variance title sequence/TitleScene_2.png" type="Texture" id=4]
+[ext_resource path="res://image/variance title sequence/TitleScene_3.png" type="Texture" id=5]
+[ext_resource path="res://image/variance title sequence/TitleScene_4.png" type="Texture" id=6]
+[ext_resource path="res://image/variance title sequence/TitleScene_5.png" type="Texture" id=7]
+[ext_resource path="res://image/variance title sequence/TitleScene_6.png" type="Texture" id=8]
+[ext_resource path="res://image/variance title sequence/TitleScene_7.png" type="Texture" id=9]
+[ext_resource path="res://image/variance title sequence/TitleScene_8.png" type="Texture" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Title Ani",
+"speed": 5.0
+} ]
+
+[node name="Win Screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 1029.0
+margin_bottom = 609.0
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 429.367
+margin_top = 280.014
+margin_right = 830.367
+margin_bottom = 477.014
+custom_fonts/font = ExtResource( 1 )
+text = "You Won
+"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 509.182, 138.276 )
+scale = Vector2( 0.91595, 0.880703 )
+frames = SubResource( 1 )
+animation = "Title Ani"
+frame = 1
+playing = true

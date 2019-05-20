@@ -22,6 +22,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_Fireball_body_entered(body):
 	if body.name == "player":
-		body._subtractHealth(10);
+		body._subtractHealth(25);
 		queue_free();
 	pass # Replace with function body.

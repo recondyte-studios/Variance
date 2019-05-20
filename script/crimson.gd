@@ -17,7 +17,7 @@ var claw = false
 var check =0 
 var fireball = false
 var stealthActive = false
-var Hp = 160
+var Hp = 500
 
 
 onready var player = get_node("../player")
@@ -61,6 +61,7 @@ func _physics_process(delta):
 			direction = -1
 	else:
 		SPEED = 200
+		
 
 
 func _on_Claw_body_entered(body):
@@ -80,7 +81,7 @@ func _on_Timer_timeout():
 	if claw && stealthActive == false:
 		var randomInt = randi() % 11
 		if randomInt < 6:
-			player._subtractHealth(2)
+			player._subtractHealth(10)
 		print(player.health)
 	pass # Replace with function body.
 
@@ -124,4 +125,6 @@ func _hurt(dmg):
 	if Hp > 0:
 		Hp = Hp - dmg;
 		if Hp <= 0:
+			get_node("../PortalToSewer").set_position(Vector2(1346,618))
 			self.queue_free();
+

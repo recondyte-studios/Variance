@@ -156,3 +156,8 @@ func _SpecialAttack():
 		
 		
 		
+
+func _on_PortalToSewer_body_entered(body):
+	if body.get_name() == "player":
+		get_tree().change_scene("res://scene/second level.tscn");
+	pass # Replace with function body.

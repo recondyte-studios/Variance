@@ -16,8 +16,9 @@ var spwn= false
 var walk = false
 var poisonCounter = 0
 var stealthActive = false
+var Hp = 500
 
-onready var spawnPt = [get_node("../spawnPt1"), get_node("../spawnPt2"), get_node("../spawnPt3")]
+onready var spawnPt = [get_node("../spawnPt1"), get_node("../spawnPt2")]
 onready var player = get_node("../player")
 
 
@@ -28,8 +29,9 @@ func _physics_process(delta):
 		velocity = move_and_slide(velocity, FLOOR);
 		$Sprite/AnimationPlayer.play("EdgySpidyWalk")
 	
-	if spiderHealth < spiderHealth*0.75 && spwn == false:
+	if Hp < 375 && spwn == false:
 		_spwnMiniSpider()
+		print("Spawn Mini Spider Activate")
 	
 	if direction == 1:
 		$Sprite.flip_h = false;
@@ -37,7 +39,6 @@ func _physics_process(delta):
 		$Sprite.flip_h = true;
 	
 	if $spiderWeb.is_colliding() == true:
-		print(player.health)
 		var randomInt = randi() % 11
 		if randomInt > 6:
 			_shootWEB()
@@ -92,10 +93,11 @@ func _directional():
 
 
 func _spwnMiniSpider():
-	for i in 3:
+	for i in 2:
 		var tarantula = TARANTULA.instance();
 		get_parent().call_deferred("add_child", tarantula)
 		tarantula.position = spawnPt[i].global_position;
+		tarantula.get_node("spiderWeb").set_cast_to(Vector2(0,50))
 	spwn = true
 	$SpwnSpiderTimer.start()
 
@@ -115,6 +117,7 @@ func _on_PoisonTimer_timeout():
 		player._subtractHealth(5)
 		poisonCounter += 1
 		$PoisonTimer.start()
+		print(player.health) 
 	pass # Replace with function body.
 
 
@@ -124,3 +127,11 @@ func _on_bounce_body_entered(body):
 		body.bounce = true
 	
 	pass # Replace with function body.
+
+func _hurt(dmg):
+	print("you've hurt the Goliath's feelings for: " + str(dmg));
+	if Hp > 0:
+		Hp = Hp - dmg;
+		if Hp <= 0:
+			get_tree().change_scene("res://scene/Win Screen.tscn");
+			self.queue_free();
