@@ -81,6 +81,6 @@ margin_bottom = 208.0
 position = Vector2( 525.815, 133.224 )
 frames = SubResource( 1 )
 animation = "Title animation"
-frame = 5
+frame = 8
 playing = true
 [connection signal="pressed" from="Panel/Buttons/New Game/StartButton" to="Panel/Buttons" method="_on_StartButton_pressed"]
