@@ -74,7 +74,7 @@ shape = SubResource( 1 )
 [node name="AttackRange" type="Area2D" parent="."]
 
 [node name="AttackField" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2( 22.9608, -2.76533 )
+position = Vector2( 1.26183, -2.76533 )
 scale = Vector2( 5.02849, 2.85358 )
 shape = SubResource( 2 )
 
