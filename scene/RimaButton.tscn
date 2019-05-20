@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="Rima" type="Button"]
+margin_left = 17.0
+margin_top = 4.0
+margin_right = 140.0
+margin_bottom = 48.0
+text = "Rima Smokes"
