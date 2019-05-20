@@ -1,12 +1,26 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scene/Tile/tileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://script/crimson.gd" type="Script" id=2]
-[ext_resource path="res://image/goliath_placeholder.png" type="Texture" id=3]
-[ext_resource path="res://scene/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://image/GoliathRunFinal/GoliathRun_0.png" type="Texture" id=3]
+[ext_resource path="res://image/GoliathRunFinal/GoliathRun_1.png" type="Texture" id=4]
+[ext_resource path="res://image/GoliathRunFinal/GoliathRun_2.png" type="Texture" id=5]
+[ext_resource path="res://image/GoliathRunFinal/GoliathRun_3.png" type="Texture" id=6]
+[ext_resource path="res://image/GoliathRunFinal/GoliathRun_4.png" type="Texture" id=7]
+[ext_resource path="res://scene/player.tscn" type="PackedScene" id=8]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 65.0806, 89.9643 )
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 626.596, 131.154 )
@@ -15,30 +29,32 @@ extents = Vector2( 626.596, 131.154 )
 extents = Vector2( 91.0137, 113.125 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 61.4528, 10 )
+extents = Vector2( 194.72, 16.679 )
 
 [node name="Crimson" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 format = 1
-tile_data = PoolIntArray( 65523, 5, 0, 65527, 1, 0, 7, 5, 0, 24, 1, 0, 131063, 1, 0, 65560, 1, 0, 196599, 1, 0, 131096, 1, 0, 262135, 1, 0, 196632, 1, 0, 327671, 1, 0, 262168, 1, 0, 393207, 1, 0, 327704, 1, 0, 458743, 1, 0, 393240, 1, 0, 524279, 1, 0, 458776, 1, 0, 589815, 1, 0, 524312, 1, 0, 655351, 1, 0, 589848, 1, 0, 720883, 2, 0, 720887, 1, 0, 720890, 2, 0, 655361, 2, 0, 655368, 2, 0, 655375, 2, 0, 655382, 2, 0, 655384, 1, 0, 786423, 1, 0, 720920, 1, 0, 851959, 1, 0, 786456, 1, 0, 917495, 1, 0, 851992, 1, 0 )
+tile_data = PoolIntArray( -65549, 11, 0, -131065, 11, 0, -13, 11, 0, -65529, 11, 0, 65523, 5, 0, 65527, 1, 0, 7, 5, 0, 24, 1, 0, 131063, 1, 0, 65560, 1, 0, 196599, 1, 0, 131096, 1, 0, 262135, 1, 0, 196632, 1, 0, 327671, 1, 0, 262168, 1, 0, 393207, 1, 0, 327704, 1, 0, 458743, 1, 0, 393240, 1, 0, 524279, 1, 0, 458776, 1, 0, 589815, 1, 0, 524312, 1, 0, 655351, 1, 0, 589848, 1, 0, 720883, 2, 0, 720887, 1, 0, 720890, 2, 0, 655361, 2, 0, 655368, 2, 0, 655375, 2, 0, 655382, 2, 0, 655384, 1, 0, 786423, 1, 0, 720920, 1, 0, 851959, 1, 0, 786456, 1, 0, 917495, 1, 0, 851992, 1, 0 )
 
 [node name="Boss" type="KinematicBody2D" parent="."]
-position = Vector2( -291.854, 542.754 )
+position = Vector2( -234.734, 525.301 )
 scale = Vector2( 0.9, 0.9 )
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
-visible = false
-shape = SubResource( 1 )
+[node name="FireballPos" type="Position2D" parent="Boss"]
+position = Vector2( 145.761, -12.696 )
 
-[node name="Sprite" type="Sprite" parent="Boss"]
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 3 )
-
-[node name="Position2D" type="Position2D" parent="Boss"]
-position = Vector2( -43.5269, -66.5135 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Boss"]
+position = Vector2( -6.28577, -156.359 )
+frames = SubResource( 5 )
+animation = "Run"
+frame = 3
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="stalking" type="Area2D" parent="Boss"]
 editor/display_folded = true
@@ -49,6 +65,8 @@ position = Vector2( 0, -30 )
 shape = SubResource( 2 )
 
 [node name="Claw" type="Area2D" parent="Boss"]
+editor/display_folded = true
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/Claw"]
 position = Vector2( 0, 1.14075 )
@@ -63,17 +81,23 @@ wait_time = 0.8
 autostart = true
 
 [node name="bounce" type="Area2D" parent="Boss"]
-editor/display_folded = true
+visible = false
 position = Vector2( -13.9668, -89.2323 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/bounce"]
-position = Vector2( 13.9667, -13.1908 )
+position = Vector2( -8.06446, 1.06464 )
 shape = SubResource( 4 )
 
 [node name="Position2D2" type="Position2D" parent="Boss"]
+visible = false
 position = Vector2( 128.029, -115.614 )
 
-[node name="player" parent="." instance=ExtResource( 4 )]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boss"]
+visible = false
+position = Vector2( 18.1433, 58.3177 )
+polygon = PoolVector2Array( -252.145, -57.4284, -142.841, -62.7173, -58.2177, -108.555, 86.3465, -149.103, 181.547, -90.9249, 207.992, 18.3796, 216.807, 101.24, 176.258, 122.395, -204.545, 124.158, -163.996, 28.9575, -252.145, 30.7205, -297.983, -23.9318 )
+
+[node name="player" parent="." instance=ExtResource( 8 )]
 position = Vector2( 560.498, 550.618 )
 
 [node name="Camera2D2" type="Camera2D" parent="player"]

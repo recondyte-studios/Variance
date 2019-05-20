@@ -11,6 +11,6 @@ func _ready():
 
 
 func _on_BossZone_body_entered(body):
-#	if body.get_name() == "player":
-#		body.play();
+	if body.get_name() == "player":
+		get_tree().change_scene("res://scene/Boss Level/Crimson.tscn");
 	pass # Replace with function body.
