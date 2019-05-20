@@ -9,7 +9,7 @@
 [ext_resource path="res://image/GoliathRunFinal/GoliathRun_4.png" type="Texture" id=7]
 [ext_resource path="res://scene/player.tscn" type="PackedScene" id=8]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -48,7 +48,7 @@ position = Vector2( 145.761, -12.696 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Boss"]
 position = Vector2( -6.28577, -156.359 )
-frames = SubResource( 5 )
+frames = SubResource( 1 )
 animation = "Run"
 frame = 3
 playing = true

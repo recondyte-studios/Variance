@@ -12,13 +12,13 @@
 [ext_resource path="res://image/sewer_tile.png" type="Texture" id=10]
 [ext_resource path="res://image/sewer-top.png" type="Texture" id=11]
 
-[sub_resource type="ConvexPolygonShape2D" id=2]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( -17.8, -17.4991, 18.1829, -17.4775, 18.1931, 17.0813, -17.7995, 17.0508 )
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( -239.955, -134.969, 240.013, -135.015, 240.013, 135.004, -239.978, 135.015 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32.0476, 32.0522 )
 
 [resource]
@@ -44,7 +44,7 @@ extents = Vector2( 32.0476, 32.0522 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1.77825, 0, 0, 1.85242, 31.6655, 32.4011 )
 } ]
 1/z_index = 0
@@ -60,7 +60,7 @@ extents = Vector2( 32.0476, 32.0522 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 240, 135 )
 } ]
 2/z_index = 0
@@ -126,7 +126,7 @@ extents = Vector2( 32.0476, 32.0522 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 1 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 32, 32 )
 } ]
 8/z_index = 0
