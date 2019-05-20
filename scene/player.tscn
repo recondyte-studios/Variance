@@ -85,6 +85,7 @@ position = Vector2( 32.625, 0 )
 position = Vector2( 9.40611, 0.99417 )
 scale = Vector2( 0.875586, 0.875586 )
 frames = ExtResource( 7 )
-animation = "Volcan_Idle"
-frame = 2
+animation = "Volcan_Fly"
+frame = 1
+playing = true
 [connection signal="timeout" from="SlowWalkTimer" to="." method="_on_Timer_timeout"]

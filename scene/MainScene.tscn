@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scene/Tile/tileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://scene/Goliath.tscn" type="PackedScene" id=2]
@@ -8,13 +8,12 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 224.858, 229.964 )
 
-[sub_resource type="RectangleShape2D" id=2]
-
 [node name="MainScene" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 format = 1
+
 tile_data = PoolIntArray( -131094, 0, 0, -131089, 1, 0, -131074, 0, 0, -196590, 0, 0, -196570, 0, 0, -196550, 0, 0, -196530, 0, 0, -196510, 4, 0, -196490, 6, 0, -196470, 6, 0, -196450, 5, 0, 524266, 2, 0, 524273, 2, 0, 524280, 2, 0, 524287, 2, 0, 458758, 2, 0, 458765, 2, 0, 458772, 2, 0, 458779, 2, 0, 458786, 2, 0, 458793, 2, 0, 458800, 2, 0, 458807, 2, 0, 458814, 2, 0, 458821, 2, 0, 458828, 2, 0, 458835, 2, 0, 458842, 2, 0, 458849, 2, 0, 458856, 2, 0, 458863, 2, 0, 458870, 2, 0, 458877, 2, 0, 458884, 2, 0, 458891, 2, 0, 458898, 2, 0, 458903, 2, 0, 458910, 2, 0, 458917, 2, 0, 458924, 2, 0 )
 
 [node name="Goliath" parent="." instance=ExtResource( 2 )]
@@ -38,6 +37,26 @@ position = Vector2( 4945.03, 204.273 )
 [node name="Goliath6" parent="." instance=ExtResource( 2 )]
 position = Vector2( 5758.51, 192.29 )
 
+tile_data = PoolIntArray( -131094, 0, 0, -131074, 0, 0, -196590, 0, 0, -196570, 0, 0, -196550, 0, 0, -196530, 0, 0, -196510, 4, 0, -196490, 6, 0, -196470, 6, 0, -196450, 5, 0, -196430, 6, 0, -196410, 6, 0, -196390, 6, 0, 524266, 2, 0, 524273, 2, 0, 524280, 2, 0, 524287, 2, 0, 458758, 2, 0, 458765, 2, 0, 458772, 2, 0, 458779, 2, 0, 458786, 2, 0, 458793, 2, 0, 458800, 2, 0, 458807, 2, 0, 458814, 2, 0, 458821, 2, 0, 458828, 2, 0, 458835, 2, 0, 458842, 2, 0, 458849, 2, 0, 458856, 2, 0, 458863, 2, 0, 458870, 2, 0, 458877, 2, 0, 458884, 2, 0, 458891, 2, 0, 458898, 2, 0, 458903, 2, 0, 458910, 2, 0, 458917, 2, 0, 458924, 2, 0, 458931, 2, 0, 458938, 2, 0, 458945, 2, 0, 458952, 2, 0, 458959, 2, 0, 458966, 2, 0, 458973, 2, 0, 458980, 2, 0 )
+
+[node name="Goliath" parent="." instance=ExtResource( 2 )]
+position = Vector2( 588.03, 383.562 )
+
+[node name="Goliath3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1611.95, 383.41 )
+
+[node name="Goliath4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2605.4, 391.398 )
+
+[node name="Goliath6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3642.92, 395.393 )
+
+[node name="Goliath7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4908.55, 392.139 )
+
+[node name="Goliath8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 6109.11, 401.9 )
+
 [node name="Goliath9" parent="." instance=ExtResource( 2 )]
 position = Vector2( 7024.63, 179.603 )
 
@@ -48,6 +67,7 @@ position = Vector2( 7740.78, 165.765 )
 position = Vector2( 8341.72, 153.002 )
 
 [node name="Goliath12" parent="." instance=ExtResource( 2 )]
+
 position = Vector2( 8928.21, 148.797 )
 
 [node name="player" parent="." instance=ExtResource( 3 )]
@@ -57,6 +77,18 @@ scale = Vector2( 6.64866, 6.8172 )
 [node name="Camera2D" type="Camera2D" parent="player"]
 scale = Vector2( 0.700102, -0.631788 )
 offset = Vector2( 200, -120 )
+
+position = Vector2( 10325.5, 402.851 )
+
+[node name="Goliath13" parent="." instance=ExtResource( 2 )]
+position = Vector2( 11957.2, 396.83 )
+
+[node name="player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -49.25, 397.346 )
+scale = Vector2( 1.62328, 1.66443 )
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+
 current = true
 zoom = Vector2( 1.4, 1.4 )
 limit_left = -1500
@@ -72,6 +104,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossZone"]
 shape = SubResource( 1 )
 
+
 [node name="Boundry" type="StaticBody2D" parent="."]
 position = Vector2( -384.207, 17.2677 )
 scale = Vector2( 8.73722, 74.4972 )
@@ -85,4 +118,5 @@ scale = Vector2( 8.73722, 74.4972 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundry2"]
 shape = SubResource( 2 )
+
 [connection signal="body_entered" from="BossZone" to="BossZone" method="_on_BossZone_body_entered"]

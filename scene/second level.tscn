@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scene/Tile/tileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://scene/Tarantula.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scene/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://script/boss-change.gd" type="Script" id=4]
-[ext_resource path="res://script/deathZone.gd" type="Script" id=5]
+[ext_resource path="res://image/sewer-portal.png" type="Texture" id=5]
+[ext_resource path="res://script/deathZone.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 152.613, 124.383 )
+extents = Vector2( 91.2246, 84.03 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 11369.4, 110.93 )
@@ -71,7 +72,7 @@ position = Vector2( 16758.1, 165.906 )
 position = Vector2( 17648.2, 332.813 )
 
 [node name="player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -106.254, 341.203 )
+position = Vector2( -195, 341.203 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 current = true
@@ -80,13 +81,21 @@ limit_left = -500
 [node name="boss-change" type="Area2D" parent="."]
 script = ExtResource( 4 )
 
+[node name="Sprite" type="Sprite" parent="boss-change"]
+position = Vector2( 19301.1, 284.874 )
+scale = Vector2( 0.373237, 0.373237 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boss-change"]
-position = Vector2( 19419.9, 240.071 )
+position = Vector2( 19304.4, 288.035 )
 shape = SubResource( 1 )
 
 [node name="deathZone" type="Area2D" parent="."]
 position = Vector2( 10602.1, 1469.89 )
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }

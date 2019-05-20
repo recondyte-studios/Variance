@@ -51,4 +51,13 @@ flat = true
 [node name="Continue" parent="Panel/Buttons" instance=ExtResource( 3 )]
 margin_top = 47.0
 margin_bottom = 208.0
+
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 525.815, 133.224 )
+frames = SubResource( 1 )
+animation = "Title animation"
+frame = 4
+playing = true
+
 [connection signal="pressed" from="Panel/Buttons/New Game/StartButton" to="Panel/Buttons" method="_on_StartButton_pressed"]
