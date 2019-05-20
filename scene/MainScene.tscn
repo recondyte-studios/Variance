@@ -18,17 +18,11 @@ tile_data = PoolIntArray( -131094, 0, 0, -131074, 0, 0, -196590, 0, 0, -196570, 
 [node name="Goliath" parent="." instance=ExtResource( 2 )]
 position = Vector2( 588.03, 383.562 )
 
-[node name="Goliath2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1107.29, 403.55 )
-
 [node name="Goliath3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1611.95, 383.41 )
 
 [node name="Goliath4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2605.4, 391.398 )
-
-[node name="Goliath5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 3132.05, 407.376 )
 
 [node name="Goliath6" parent="." instance=ExtResource( 2 )]
 position = Vector2( 3642.92, 395.393 )
@@ -53,9 +47,6 @@ position = Vector2( 10325.5, 402.851 )
 
 [node name="Goliath13" parent="." instance=ExtResource( 2 )]
 position = Vector2( 11957.2, 396.83 )
-
-[node name="Goliath14" parent="." instance=ExtResource( 2 )]
-position = Vector2( 12987.6, 397.498 )
 
 [node name="player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -49.25, 397.346 )

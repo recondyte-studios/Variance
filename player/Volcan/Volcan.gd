@@ -1,9 +1,10 @@
 extends KinematicBody2D
 
-onready var VolcanAxe = preload("res://scene/VolcanAxe.tscn")
+onready var VolcanAxe = preload("res://player/Volcan/VortexAxe.tscn");
+onready var StageTwoAxe = preload("res://player/Volcan/StageTwoVortexAxe.tscn");
 onready var AttackRange = get_node("AttackRange");
-onready var AttackAnim = get_node("AttackAnim");
-onready var AxeSpawn = get_node("BulletSpawn")
+onready var CharAnim = get_node("CharAnim");
+onready var AxeSpawn = get_node("AxeSpawn")
 
 
 var run_speed = 300
@@ -38,6 +39,8 @@ func _process(delta):
 	var ManaBar = $CanvasLayer/ManaBar;
 	hpBar.set_value(health);
 	ManaBar.set_value(FlameStacks);
+	if velocity.x == 0 && velocity.y == 0:
+		CharAnim.play("Volcan_Idle");
 	
 	if health < 0:
 		get_tree().change_scene("res://scene/DeathScreen.tscn");
@@ -68,10 +71,14 @@ func get_input():
 #		animForward.seek(0, true)
 		velocity.x += run_speed;
 		GunDir = 1;
+		CharAnim.play("Volcan_Fly", false)
+		CharAnim.set_flip_h(false);
 		
 	if left:
 		velocity.x -= run_speed
 		GunDir = -1;
+		CharAnim.play("Volcan_Fly", false);
+		CharAnim.set_flip_h(true);
 		
 	if baseAttack:
 		_BasicAttack();
@@ -118,7 +125,8 @@ func _FlameStacks(stacks):
 		pass;
 
 func _BasicAttack():
-	AttackAnim.play("BasicAttack");
+	if velocity.x == 0 && velocity.y == 0:
+		CharAnim.play("Volcan_AxeThrow");
 	var body = AttackRange.get_overlapping_bodies();
 	for i in body:
 		if i.is_in_group("Enemy"):
@@ -133,8 +141,18 @@ func _SpecialAttack():
 	print("Used: " + str(FlameStacks));
 	if FlameStacks == 0:
 		_BasicAttack();
-	elif FlameStacks >= 5:
+	elif FlameStacks >= 5 && FlameStacks < 10:
 		var Axe = VolcanAxe.instance();
 		get_parent().call_deferred("add_child", Axe)
 		Axe.add_to_group("Bullet", true);
 		Axe.position = AxeSpawn.global_position;
+		_FlameStacks(-5);
+	elif FlameStacks >= 10:
+		var AxeStageTwo = StageTwoAxe.instance();
+		get_parent().call_deferred("add_child", AxeStageTwo);
+		AxeStageTwo.add_to_group("Bullet", true);
+		AxeStageTwo.position = AxeSpawn.global_position;
+		_FlameStacks(-10);
+		
+		
+		

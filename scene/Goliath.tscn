@@ -31,7 +31,10 @@ extents = Vector2( 43.6785, 56.2783 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 70.9243, 10 )
 
-[node name="Goliath" type="KinematicBody2D"]
+[node name="Goliath" type="KinematicBody2D" groups=[
+"Enemy",
+]]
+scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -39,7 +42,7 @@ position = Vector2( -4.01709, -55.1738 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 1 )
 animation = "New Anim"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
